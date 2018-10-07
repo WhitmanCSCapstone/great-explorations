@@ -1,0 +1,22 @@
+@import '~antd/dist/antd.css';
+
+@media screen and (max-width: 360px) {
+  .login-form {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 360px) {
+  .login-form {
+    width: 300px;
+  }
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+.login-form-text {
+  float: left;
+  color: #ddd;
+}
