@@ -15,7 +15,10 @@ class NormalLoginForm extends React.Component {
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator, getFieldValue } = this.props.form;
+      
+    const userNameField = getFieldValue('userName');
+    
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
@@ -44,6 +47,8 @@ class NormalLoginForm extends React.Component {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
+          <br />
+          <div className="login-form-text"> Username: { userNameField }</div>
           <br />
           <div className="login-form-text">Or <a href="https://duckduckgo.com/">register now!</a></div>
         </FormItem>
