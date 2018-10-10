@@ -5,6 +5,11 @@ import './FormTest.css';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
+  values = {
+    name: null,
+    email: null
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -16,42 +21,32 @@ class NormalLoginForm extends React.Component {
 
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
-      
-    const userNameField = getFieldValue('userName');
-    
+    this.values.name = getFieldValue('name');
+    this.values.email = getFieldValue('email');
+
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('name', {
+            rules: [{ required: true, message: 'Please input your name!' }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Name" />
           )}
         </FormItem>
         <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+          {getFieldDecorator('email', {
+            rules: [{ required: true, message: 'Please input your email!' }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
           )}
         </FormItem>
         <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-            <Checkbox className="login-form-text">Remember me</Checkbox>
-          )}
-          <a className="login-form-forgot" href="https://duckduckgo.com/">Forgot password</a>
-          <br />
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          <br />
-          <div className="login-form-text"> Username: { userNameField }</div>
-          <br />
-          <div className="login-form-text">Or <a href="https://duckduckgo.com/">register now!</a></div>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
+        <br />
+        <div className="login-form-text"><b>Name:</b> { this.values.name }</div>
+        <br />
+        <div className="login-form-text"><b>Email:</b> { this.values.email }</div>
       </Form>
     );
   }
