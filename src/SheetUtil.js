@@ -1,7 +1,7 @@
 // Based on https://blog.416serg.me/building-an-app-using-google-sheets-api-react-d69681d22ce1
 
 export var SHEET_DATA = {
-  apiKey: "AIzaSyAz4MOTnvAKI3NuNDyWD3YEawqH5nd0DPs",
+  apiKey: "AIzaSyD7PTTvLfrZEFrgEexcNlaG4mij5iiJfrM",
   discoveryDocs: 
     ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
   spreadsheetId: "13ADo7ukhOhJbYvrfMYRgpVIU5W8FiFsU9N9OApTRnfc"
