@@ -1,19 +1,19 @@
 import React from 'react';
-import { Row, Col, Popover } from 'antd';
+import { Popover } from 'antd';
 import './Grid.css';
 
 class WorkshopMenu extends React.Component {
     render() {
         const content = (
             <div>
-                <p>Instructor</p>
-                <p>Description</p>
+                <p>Julie Lauenburg: Art Educator; Mira Gobel: Principal</p>
+                <p>Fuse physics and art with pendulum painting! Warning: could be messy.</p>
             </div>
         );
-        const tagline = "Tagline";
-        const workshopName = "Workshop 1";
+        const tagline = "Art of the Pendulum";
+        const workshopName = "Art in Physics";
         return( 
-            <Popover content={content} title={ tagline } trigger="hover">
+            <Popover content={content} title={ tagline } trigger="hover" overlayStyle={{ width: "300px" }}>
                         <div className="gutter-box"> { workshopName } </div>
             </Popover>
         )
