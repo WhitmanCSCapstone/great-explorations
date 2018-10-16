@@ -1,0 +1,12 @@
+.gutter-example .ant-row > div {
+  background: transparent;
+  border: 0;
+  padding: 10px 10px;
+}
+.gutter-box {
+  background: brown;
+  color: white;
+  font-size: medium;
+  padding: 10px 10px 10px 10px;
+  width: 120%;
+}
