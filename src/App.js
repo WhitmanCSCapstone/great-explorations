@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FormTest from './FormTest.js';
-import ReadSheetTest from './ReadSheetTest.js';
+import EmbedForm from './EmbedForm.js';
 
 class App extends Component {
   render() {
@@ -14,10 +13,7 @@ class App extends Component {
             Welcome to Great Explorations!
           </p>
           <p>
-            <ReadSheetTest />
-          </p>
-          <p>
-            <FormTest />
+            <EmbedForm />
           </p>
         </header>
       </div>
