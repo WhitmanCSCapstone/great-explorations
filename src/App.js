@@ -9,10 +9,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-            <ImageScroll />
-        </div>
+        
         <header className="App-header">
+          <p>
+            <ImageScroll />
+          </p>
           <p className="App-header-text">
             Welcome to Great Explorations!
           </p>

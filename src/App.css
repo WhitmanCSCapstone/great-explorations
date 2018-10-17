@@ -12,12 +12,14 @@
 .App-header {
   background-color: #aecce7;
   min-height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(30px);
   color: black;
+  padding: 0px 0px 0px 0px;
 }
 
 .App-header-text {
