@@ -7,21 +7,21 @@ class WorkshopGrid extends React.Component {
     render() {
         const mycontent = (
             <div>
-                <p>Julie Lauenburg: Art Educator; Mira Gobel: Principal</p>
-                <p>Fuse physics and art with pendulum painting! Warning: could be messy.</p>
+                <p>Instructor(s)</p>
+                <p>Description</p>
             </div>
         );
-        const mytagline = "Art of the Pendulum";
-        const myworkshopName = "Art in Physics";
+        const mytagline = "Tagline";
+        const myworkshopName = "Title of Workshop";
         
         return (
             <div className="gutter-example">
-                <Row gutter={36}>
+                <Row gutter={50}>
                   <Col className="gutter-row" span={8}>
                     <WorkshopMenu/>
                   </Col>
                   <Col className="gutter-row" span={8}>
-                    <Popover content={mycontent} title={ mytagline } trigger="hover">
+                    <Popover content={mycontent} title={ mytagline } trigger="hover" overlayStyle={{ width: "300px" }}>
                         <div className="gutter-box"> { myworkshopName } </div>
                     </Popover>
                   </Col>
@@ -29,7 +29,7 @@ class WorkshopGrid extends React.Component {
                     <div className="gutter-box"> Workshop 3 </div>
                   </Col>
                 </Row>
-                <Row gutter={36}>
+                <Row gutter={50}>
                   <Col className="gutter-row" span={8}>
                     <div className="gutter-box"> Workshop 4 </div>
                   </Col>

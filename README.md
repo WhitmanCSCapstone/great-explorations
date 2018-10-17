@@ -12,3 +12,5 @@ sudo npm install react
 sudo npm install react-dom
 sudo npm install -g react-scripts
 sudo npm install yarn
+sudo yarn add react-slick
+sudo npm install slick-carousel
