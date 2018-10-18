@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logoTest.jpg'
 import EmbedForm from './EmbedForm.js';
 import WorkshopGrid from './Grid.js';
 import ImageScroll from './ImageScroll.js';
