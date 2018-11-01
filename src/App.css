@@ -9,6 +9,14 @@
   height: 40vmin;
 }
 
+#components-layout-demo-top .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255,255,255,.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
 .App-header {
   background-color: #aecce7;
   min-height: 100vh;
@@ -23,6 +31,9 @@
 }
 
 .App-header-text {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(30px);
