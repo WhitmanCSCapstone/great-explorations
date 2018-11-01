@@ -42,20 +42,17 @@ class WorkshopGrid extends React.Component {
         let count = 0;
         let children = [];
         this.state.workshops.map((ws) => {
-            const both = (<div><p>{ws.description}</p><p>Instructor: {ws.instructor}</p></div>
-                         );
+            const both = (<div><p>{ws.description}</p><p>Instructor: {ws.instructor}</p></div>);
             children.push(
                  <Col className="gutter-row" span={4}>
                     <Popover content={both} title={ws.title} trigger="hover" overlayStyle={{ width: "300px" }}>
                         <div className="gutter-box"> {ws.category} </div>
                     </Popover>
-                 </Col>
-                         );
+                 </Col>);
             count = count + 1;
             if (count >= 6) {
                 count = 0;
-                table.push(<Row gutter={60}>{children}</Row>
-                          );
+                table.push(<Row gutter={60}>{children}</Row>);
                 children = [];
             }
 
