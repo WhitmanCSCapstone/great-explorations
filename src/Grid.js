@@ -35,28 +35,6 @@ class WorkshopGrid extends React.Component {
             this.setState({ error });
         }
     }
-    
-    createPopup = () => {
-        let button = []
-        
-        const content = (
-            <div>
-                <p>Julie Lauenburg: Art Educator; Mira Gobel: Principal</p>
-                <p>Fuse physics and art with pendulum painting! Warning: could be messy.</p>
-            </div>
-        );
-        const tagline = "Art of the Pendulum";
-        const workshopName = "Art in Physics";
-        
-        button.push(<Popover content={content} title={ tagline } 
-                    trigger="hover" overlayStyle={{ width: "300px" }}>
-                        <div className="gutter-box"> { workshopName } </div>
-                    </Popover>
-                   )
-        
-        return button
-        
-    }
 
     createWorkshops = () => {
         let table = []
@@ -96,7 +74,7 @@ class WorkshopGrid extends React.Component {
         
         return (
             <div className="gutter-example">
-                {this.createWorkshops2()}
+                {this.createWorkshops()}
             
             </div>
         )
