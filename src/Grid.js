@@ -2,18 +2,56 @@ import React from 'react';
 import { Row, Col, Popover } from 'antd';
 import './Grid.css';
 import WorkshopMenu from './WorkshopMenu.js';
+import { SHEET_LOAD, SHEET_INFO } from './SheetUtil';
 
 class WorkshopGrid extends React.Component {
+    state = {
+        workshops: [],
+        error: null
+    }
+
+    componentDidMount() {
+        window.gapi.load("client", this.initClient);
+    }
+
+    initClient = () => {
+        window.gapi.client
+            .init({
+                apiKey: SHEET_INFO.apiKey,
+                discoveryDocs: SHEET_INFO.discoveryDocs
+            })
+            .then(() => {
+                SHEET_LOAD(this.onLoad);
+        });
+    }
+
+    onLoad = (data, error) => {
+        if (data) {
+            var temp = data.workshops;
+            var workshops = [];
+            temp.map((ws, i) => {workshops.push(ws)});
+            this.setState({ workshops });
+        } else {
+            this.setState({ error });
+        }
+    }
+
     render() {
+        if (this.state.error) {
+            return <div>{this.state.error}</div>;
+        }
+        
+        // EXAMPLE. REMOVE THIS LINE LATER!
+        console.log(this.state.workshops);
+        
         const mycontent = (
             <div>
                 <p>Instructor(s)</p>
                 <p>Description</p>
             </div>
         );
-        const mytagline = "Tagline";
-        const myworkshopName = "Title of Workshop";
-        
+        const mytagline = "Title";
+        const myworkshopName = "Category";
         return (
             <div className="gutter-example">
                 <Row gutter={50}>
