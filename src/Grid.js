@@ -2,37 +2,38 @@ import React from 'react';
 import { Row, Col, Popover } from 'antd';
 import './Grid.css';
 import WorkshopMenu from './WorkshopMenu.js';
-import { SHEET_DATA, SHEET_LOAD } from "./SheetUtil";
+import { SHEET_LOAD, SHEET_INFO } from './SheetUtil';
 
 class WorkshopGrid extends React.Component {
     state = {
-    people: [],
-    error: null,
-    show: false
+        workshops: [],
+        error: null
+    }
+
+    componentDidMount() {
+        window.gapi.load("client", this.initClient);
     }
 
     initClient = () => {
-    window.gapi.client
-      .init({
-        apiKey: SHEET_DATA.apiKey,
-        discoveryDocs: SHEET_DATA.discoveryDocs
-      })
-      .then(() => {
-      SHEET_LOAD(this.onLoad);
-    });
-    };
+        window.gapi.client
+            .init({
+                apiKey: SHEET_INFO.apiKey,
+                discoveryDocs: SHEET_INFO.discoveryDocs
+            })
+            .then(() => {
+                SHEET_LOAD(this.onLoad);
+        });
+    }
 
     onLoad = (data, error) => {
-    if (data) {
-      const people = data.people;
-      this.setState({ people });
-    } else {
-      this.setState({ error });
-    }
-    };
-
-    componentDidMount() {
-    window.gapi.load("client", this.initClient);
+        if (data) {
+            var temp = data.workshops;
+            var workshops = [];
+            temp.map((ws, i) => {workshops.push(ws)});
+            this.setState({ workshops });
+        } else {
+            this.setState({ error });
+        }
     }
 
     createWorkshops = () => {
@@ -57,19 +58,21 @@ class WorkshopGrid extends React.Component {
     }
     
     render() {
+        if (this.state.error) {
+            return <div>{this.state.error}</div>;
+        }
+        
+        // EXAMPLE. REMOVE THIS LINE LATER!
+        console.log(this.state.workshops);
+        
         const mycontent = (
             <div>
-                <p>{this.state.people.map((person, i) => (
-                <div>{person.instructor}</div>
-              ))}</p>
-                <p>{this.state.people.map((person, i) => (
-                <div>{person.description}</div>
-              ))}</p>
+                <p>Content A</p>
+                <p>Content B</p>
             </div>
         );
-        const mytagline = "Tagline";
-        const myworkshopName = "Workshop Title";
-        
+        const mytagline = "Title";
+        const myworkshopName = "Category";
         return (
             <div className="gutter-example">
                 {this.createWorkshops()}
