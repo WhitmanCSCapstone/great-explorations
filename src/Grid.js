@@ -46,7 +46,7 @@ class WorkshopGrid extends React.Component {
             children.push(
                  <Col className="gutter-row" span={4}>
                     <Popover content={both} title={ws.title} trigger="hover" overlayStyle={{ width: "300px" }}>
-                        <div className="gutter-box"> {ws.category} </div>
+                        <div className="gutter-box"> {ws.category.replace(/ /g,'\u00a0')} </div>
                     </Popover>
                  </Col>);
             count = count + 1;
