@@ -35,8 +35,30 @@ class WorkshopGrid extends React.Component {
             this.setState({ error });
         }
     }
+    
+    createPopup = () => {
+        let button = []
+        
+        const content = (
+            <div>
+                <p>Julie Lauenburg: Art Educator; Mira Gobel: Principal</p>
+                <p>Fuse physics and art with pendulum painting! Warning: could be messy.</p>
+            </div>
+        );
+        const tagline = "Art of the Pendulum";
+        const workshopName = "Art in Physics";
+        
+        button.push(<Popover content={content} title={ tagline } 
+                    trigger="hover" overlayStyle={{ width: "300px" }}>
+                        <div className="gutter-box"> { workshopName } </div>
+                    </Popover>
+                   )
+        
+        return button
+        
+    }
 
-    createWorkshops = () => {
+    createWorkshops2 = () => {
         let table = []
 
         // Outer loop to create parent
@@ -46,7 +68,7 @@ class WorkshopGrid extends React.Component {
             for (let j = 1; j < 7; j++) {
                 let mynum = 6 * i + j;
                 children.push(<Col className="gutter-row" span={4}>
-                              <div className="gutter-box"> Workshop {mynum} </div>
+                              {this.createPopup()}
                               </Col>
                              )
             }
@@ -65,17 +87,9 @@ class WorkshopGrid extends React.Component {
         // EXAMPLE. REMOVE THIS LINE LATER!
         console.log(this.state.workshops);
         
-        const mycontent = (
-            <div>
-                <p>Content A</p>
-                <p>Content B</p>
-            </div>
-        );
-        const mytagline = "Title";
-        const myworkshopName = "Category";
         return (
             <div className="gutter-example">
-                {this.createWorkshops()}
+                {this.createWorkshops2()}
             
             </div>
         )
