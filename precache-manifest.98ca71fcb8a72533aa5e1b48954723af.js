@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/great-explorations/static/media/wheat.605e597d.jpg"
   },
   {
-    "revision": "00fa9f5a3f9719d99c4e",
-    "url": "/great-explorations/static/css/main.4edd2067.chunk.css"
+    "revision": "a2dbd9c4bc8359b6e5b3",
+    "url": "/great-explorations/static/css/main.e8c8cd7f.chunk.css"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/great-explorations/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "32c34e026af7d7a9a391",
-    "url": "/great-explorations/static/js/1.32c34e02.chunk.js"
+    "revision": "9ef5e361fd39d7d9937e",
+    "url": "/great-explorations/static/js/1.9ef5e361.chunk.js"
   },
   {
     "revision": "60453b8abffda8bb55a6",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/great-explorations/static/media/girls.bf759622.jpg"
   },
   {
-    "revision": "00fa9f5a3f9719d99c4e",
-    "url": "/great-explorations/static/js/main.00fa9f5a.chunk.js"
+    "revision": "a2dbd9c4bc8359b6e5b3",
+    "url": "/great-explorations/static/js/main.a2dbd9c4.chunk.js"
   },
   {
     "revision": "9a0d7027e69a9e270c40925fcbccd2b4",
@@ -48,11 +48,11 @@ self.__precacheManifest = [
     "url": "/great-explorations/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "32c34e026af7d7a9a391",
-    "url": "/great-explorations/static/css/1.85e3faeb.chunk.css"
+    "revision": "9ef5e361fd39d7d9937e",
+    "url": "/great-explorations/static/css/1.f80c6ddb.chunk.css"
   },
   {
-    "revision": "6a1c34cc1895fed1a6b11dcf693fd7a2",
+    "revision": "8f475b34f29eca104bdf1ad873836755",
     "url": "/great-explorations/index.html"
   }
 ];
