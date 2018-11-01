@@ -67,12 +67,8 @@ class WorkshopGrid extends React.Component {
         
         const mycontent = (
             <div>
-                <p>{this.state.people.map((person, i) => (
-                <div>{person.instructor}</div>
-              ))}</p>
-                <p>{this.state.people.map((person, i) => (
-                <div>{person.description}</div>
-              ))}</p>
+                <p>Content A</p>
+                <p>Content B</p>
             </div>
         );
         const mytagline = "Title";
