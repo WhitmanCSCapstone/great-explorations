@@ -1,12 +1,18 @@
 .gutter-example .ant-row > div {
   background: transparent;
   border: 0;
-  padding: 10px 10px;
+  padding: 15px 15px;
 }
 .gutter-box {
   background: #8d0ce7;
-  color: white;
-  font-size: large;
   padding: 10px 10px 10px 10px;
-  width: 120%;
+  width: calc(window.innerWidth / 5);
+  height: 75px;
+  color: white;
+  font-size: calc(0.5rem + 1vw);
+  text-align: center;
+}
+
+
+.gutter-box-text {
 }

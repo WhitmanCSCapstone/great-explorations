@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col, Popover } from 'antd';
 import './Grid.css';
-import WorkshopMenu from './WorkshopMenu.js';
 import { SHEET_LOAD, SHEET_INFO } from './SheetUtil';
 
 class WorkshopGrid extends React.Component {
@@ -35,7 +34,7 @@ class WorkshopGrid extends React.Component {
             this.setState({ error });
         }
     }
-
+    /*.replace(/ /g,'\u00a0')}*/
     createWorkshops = () => {
         let table = []
 
@@ -44,17 +43,20 @@ class WorkshopGrid extends React.Component {
         this.state.workshops.map((ws) => {
             const both = (<div><p>{ws.description}</p><p>Instructor: {ws.instructor}</p></div>);
             children.push(
-                 <Col className="gutter-row" span={4}>
-                    <Popover content={both} title={ws.title} trigger="hover" overlayStyle={{ width: "300px" }}>
-                        <div className="gutter-box"> {ws.category.replace(/ /g,'\u00a0')} </div>
+                 <Col className="gutter-row" span={6}>
+                    <Popover content={both} title={ws.category} trigger="hover" overlayStyle={{ width: "300px" }}>
+
+                        <div className="gutter-box"> {ws.title} </div>
+
                     </Popover>
                  </Col>);
             count = count + 1;
-            if (count >= 6) {
+            if (count >= 4) {
                 count = 0;
-                table.push(<Row gutter={60}>{children}</Row>);
+                table.push(<Row gutter={48}>{children}</Row>);
                 children = [];
             }
+
         });
 
         return table
@@ -68,14 +70,6 @@ class WorkshopGrid extends React.Component {
         // EXAMPLE. REMOVE THIS LINE LATER!
         console.log(this.state.workshops);
         
-        const mycontent = (
-            <div>
-                <p>Content A</p>
-                <p>Content B</p>
-            </div>
-        );
-        const mytagline = "Title";
-        const myworkshopName = "Category";
         return (
             <div className="gutter-example">
                 {this.createWorkshops()}
