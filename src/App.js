@@ -27,7 +27,6 @@ class App extends Component {
             current: e.key,
         });
     }
-  
     render() {
         return (
           <Router>
@@ -59,7 +58,7 @@ class App extends Component {
                          <Route exact path={"/" + name} component={pages[name]} key={name} />
                        )
                     })}
-                    
+
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
                     Whitman College ©2018 Created by Nelson Hayes, Melissa Kohl, Kirk Lange, and Jack Stewart

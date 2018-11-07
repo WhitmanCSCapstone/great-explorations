@@ -17,7 +17,8 @@ class Registration extends Component {
                         Welcome to Great Explorations!
                     </p>
                     <p className="App-text">
-                        Below you will find all of the 2019 workshops.
+                        A Science, Technology, Engineering and Math conference for 5th thru 8th grade girls.<br></br>
+                                March 9th, 2019 - Whitman College
                     </p>
                     <p>
                         <WorkshopGrid />
