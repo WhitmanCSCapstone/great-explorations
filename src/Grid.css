@@ -6,7 +6,7 @@
 .gutter-box {
   background: #8d0ce7;
   padding: 10px 10px 10px 10px;
-  width: calc(window.innerWidth / 5);
+  width: 20vi;
   height: 75px;
   color: white;
   font-size: calc(2vw - 0.25rem);
