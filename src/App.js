@@ -10,10 +10,10 @@ const { Header, Content, Footer } = Layout;
 
 class App extends Component {
 
-                        
 
-    
-  
+
+
+
     render() {
         return (
             <Layout className="layout">
@@ -41,6 +41,12 @@ class App extends Component {
                             <p className="App-header-text">
                                 Welcome to Great Explorations!
                             </p>
+                            <center>
+                            <p className="App-text">
+                                A Science, Technology, Engineering and Math conference for 5th thru 8th grade girls.<br></br>
+                                March 9th, 2019 - Whitman College
+                            </p>
+                            </center>
                             <p className="App-text">
                                 Below you will find all of the 2019 workshops.
                             </p>
@@ -51,7 +57,7 @@ class App extends Component {
                                 <EmbedForm />
                             </p>
                         </div>
-                        
+
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
