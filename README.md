@@ -1,16 +1,18 @@
-# great-explorations
+# Great Explorations
 
 Registration/planning support software for Great Explorations: A hands-on STEM adventure for 5th - 8th grade girls
 
-# necessary installations for working with code
+# Setup
 
-Make sure npm is installed
+Make sure NodeJS/NPM is installed on your system, then run `npm install` inside your clone of this repo.
 
-# inside repo
-sudo npm install antd
-sudo npm install react
-sudo npm install react-dom
-sudo npm install -g react-scripts
-sudo npm install yarn
-sudo yarn add react-slick
-sudo npm install slick-carousel
+```
+sudo apt-get install nodejs
+git clone https://github.com/WhitmanCSCapstone/great-explorations.git
+cd great-explorations
+sudo npm install
+```
+
+# Google Apps Script
+
+The Google Apps Script (GAS) related code can be viewed [here](https://docs.google.com/spreadsheets/d/1h-UJlgXtuydbPonqGLyPRx3FG8hp9XANk_TxjoQ46uw/edit?usp=sharing) alongside the workshop description spreadsheet.
