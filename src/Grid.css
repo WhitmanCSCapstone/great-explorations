@@ -9,7 +9,7 @@
   width: calc(window.innerWidth / 5);
   height: 75px;
   color: white;
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(2vw - 0.25rem);
   text-align: center;
 }
 
