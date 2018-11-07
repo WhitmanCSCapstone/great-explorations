@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/great-explorations/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/great-explorations/static/media/slick.b7c9e1e4.woff"
-  },
-  {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/great-explorations/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/great-explorations/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d98813cc3bd84f696014",
