@@ -13,7 +13,8 @@ class ReadSheetTest extends React.Component {
   render() {
     var form = null;
     var buttonText = "Show Form";
-    if (this.state.show) {
+    /* if (this.state.show) { */
+    if (true) {
         buttonText = "Hide Form";
         form = (
           <div>
@@ -25,12 +26,13 @@ class ReadSheetTest extends React.Component {
           </div>
         );
     }
-    
-    return (
-      <div>
+/*
         <Button type="primary" onClick={() => this.handleClick()}>
             {buttonText}
         </Button>
+*/
+    return (
+      <div>
         {form}
       </div>
     );
