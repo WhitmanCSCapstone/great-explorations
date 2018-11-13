@@ -3,6 +3,7 @@ import './App.css';
 import Registration from './Registration.js';
 import About from './About.js';
 import Sponsors from './Sponsors.js';
+import Home from './Home.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { Layout, Menu} from 'antd';
@@ -18,7 +19,7 @@ const pages = {
 class App extends Component {
 
     state = {
-        current: null,
+        current: "registration",
     }
 
     handleClick = (e) => {
@@ -36,7 +37,7 @@ class App extends Component {
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        SelectedKeys={[this.state.current]}
+                        defaultSelectedKeys={[this.state.current]}
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
@@ -52,16 +53,21 @@ class App extends Component {
                     </Menu>
                 </Header>
 
-                <Content style={{ padding: '0 50px' }}>
+                <Content style={{ padding: '0 50px 0 50px', minHeight: '100vh'}}>
+                  <div>
                     {Object.keys(pages).map((name) => {
                        return(
                          <Route exact path={"/" + name} component={pages[name]} key={name} />
                        )
                     })}
+                  </div>
+                  <div>
+                      <Route exact path={"/"} component={Registration} key={"default"} />
+                  </div>
 
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Whitman College ©2018 Created by Nelson Hayes, Melissa Kohl, Kirk Lange, and Jack Stewart
+                    Whitman College Copyright ©2018 Nelson Hayes, Melissa Kohl, Kirk Lange, and Jack Stewart
                 </Footer>
             </Layout>
           </Router>

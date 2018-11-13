@@ -5,7 +5,7 @@ class About extends Component {
     
     render() {
         return (
-            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+            <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
                     <p className="App-header-text">
                         About page!
