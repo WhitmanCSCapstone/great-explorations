@@ -1,63 +1,76 @@
 import React, { Component } from 'react';
 import './App.css';
-import EmbedForm from './EmbedForm.js';
-import WorkshopGrid from './Grid.js';
-import ImageScroll from './ImageScroll.js';
+import Registration from './Registration.js';
+import About from './About.js';
+import Sponsors from './Sponsors.js';
+import Home from './Home.js';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { Layout, Menu} from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
+const pages = {
+  about: About,
+  registration: Registration,
+  sponsors: Sponsors
+}
+
 class App extends Component {
 
-                        
+    state = {
+        current: "registration",
+    }
 
-    
-  
+    handleClick = (e) => {
+        console.log('click ', e);
+        this.setState({
+            current: e.key,
+        });
+    }
     render() {
         return (
+          <Router>
             <Layout className="layout">
                 <Header>
                     <div className="logo" />
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={['2']}
+                        defaultSelectedKeys={[this.state.current]}
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
-                        <Menu.Item key="1">About</Menu.Item>
-                        <Menu.Item key="2">Register Now!</Menu.Item>
-                        <Menu.Item key="3">Sponsors</Menu.Item>
+                        {Object.keys(pages).map((name) => {
+                             return(
+                               <Menu.Item key={name}>
+                                 <Link to={"/"+name}>
+                                   {name.charAt(0).toUpperCase() + name.slice(1)}
+                                 </Link>
+                               </Menu.Item>
+                             )
+                          })}
                     </Menu>
                 </Header>
 
-                <Content style={{ padding: '0 50px' }}>
-                    <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-                        <div className="App-header-text">
-                            <p>
-                                <ImageScroll />
-                            </p>
-                            <p className="App-header-text">
-                                Welcome to Great Explorations!
-                            </p>
-                            <p className="App-text">
-                                Below you will find all of the 2019 workshops.
-                            </p>
-                            <p>
-                                <WorkshopGrid />
-                            </p>
-                            <p>
-                                <EmbedForm />
-                            </p>
-                        </div>
-                        
-                    </div>
+                <Content style={{ padding: '0 50px 0 50px', minHeight: '100vh'}}>
+                  <div>
+                    {Object.keys(pages).map((name) => {
+                       return(
+                         <Route exact path={"/" + name} component={pages[name]} key={name} />
+                       )
+                    })}
+                  </div>
+                  <div>
+                      <Route exact path={"/"} component={Registration} key={"default"} />
+                  </div>
+
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Whitman College ©2018 Created by Nelson Hayes, Melissa Kohl, Kirk Lange, and Jack Stewart
+                    Whitman College Copyright ©2018 Nelson Hayes, Melissa Kohl, Kirk Lange, and Jack Stewart
                 </Footer>
             </Layout>
+          </Router>
         );
     }
 }
