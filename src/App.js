@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Registration from './Registration.js';
-import About from './About.js';
-import Sponsors from './Sponsors.js';
-import Home from './Home.js';
+import Registration from './pages/Registration.js';
+import About from './pages/About.js';
+import Sponsors from './pages/Sponsors.js';
+import Home from './pages/Home.js';
+import FAQ from './pages/FAQ.js';
+import Keynote from './pages/Keynote.js';
+import Contact from './pages/Contact.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import { Layout, Menu} from 'antd';
 
 const { Header, Content, Footer } = Layout;
@@ -13,7 +15,8 @@ const { Header, Content, Footer } = Layout;
 const pages = {
   about: About,
   registration: Registration,
-  sponsors: Sponsors
+  sponsors: Sponsors,
+  keynote: Keynote
 }
 
 class App extends Component {
@@ -50,6 +53,16 @@ class App extends Component {
                                </Menu.Item>
                              )
                           })}
+                        <Menu.Item key={"faq"}>
+                             <Link to={"/faq"}>
+                               {"FAQs"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"contact"}>
+                             <Link to={"/contact"}>
+                               {"Contact Us"}
+                             </Link>
+                           </Menu.Item>
                     </Menu>
                 </Header>
 
@@ -60,6 +73,12 @@ class App extends Component {
                          <Route exact path={"/" + name} component={pages[name]} key={name} />
                        )
                     })}
+                  </div>
+                  <div>
+                      <Route exact path={"/faq"} component={FAQ} key={"faq"} />
+                  </div>
+                  <div>
+                      <Route exact path={"/contact"} component={Contact} key={"contact"} />
                   </div>
                   <div>
                       <Route exact path={"/"} component={Registration} key={"default"} />
