@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
+import './../App.css';
 
-class About extends Component {
+class Home extends Component {
     
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
                     <p className="App-header-text">
-                        About page!
+                        Home page!
                     </p>
                     <p className="App-text">
-                        Our information:
+                        get registered at the above link!
                     </p>
                 </div>
 
@@ -21,4 +21,4 @@ class About extends Component {
     }
 }
 
-export default About;
+export default Home;

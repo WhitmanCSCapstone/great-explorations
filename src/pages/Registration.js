@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import EmbedForm from './EmbedForm.js';
-import WorkshopGrid from './Grid.js';
-import ImageScroll from './ImageScroll.js';
+import './../App.css';
+import EmbedForm from './../components/EmbedForm.js';
+import WorkshopGrid from './../components/Grid.js';
+import ImageScroll from './../components/ImageScroll.js';
 
 class Registration extends Component {
     
