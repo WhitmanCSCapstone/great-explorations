@@ -66,7 +66,7 @@ class App extends Component {
                     </Menu>
                 </Header>
 
-                <Content style={{ padding: '0 50px 0 50px', minHeight: '100vh'}}>
+                <Content style={{ padding: '0 3vw 0 3vw', minHeight: '100vh'}}>
                   <div>
                     {Object.keys(pages).map((name) => {
                        return(

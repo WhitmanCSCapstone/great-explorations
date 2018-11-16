@@ -53,7 +53,7 @@ class WorkshopGrid extends React.Component {
             count = count + 1;
             if (count >= 4) {
                 count = 0;
-                table.push(<Row gutter={48}>{children}</Row>);
+                table.push(<Row gutter={"5vw"}>{children}</Row>);
                 children = [];
             }
 
