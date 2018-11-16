@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(30px);
+  font-size: 2.5vw;
   color: black;
   padding: 0px 0px 0px 0px;
 }
@@ -46,7 +46,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(30px);
+  font-size: 2.5vw;
   color: red;
   padding-top: 0;
 }
@@ -54,7 +54,7 @@
 .App-text {
   align-items: center;
   justify-content: center;
-  font-size: calc(20px);
+  font-size: 2vw;
   color: black;
 }
 
