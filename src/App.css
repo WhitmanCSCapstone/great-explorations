@@ -50,7 +50,16 @@
   color: red;
   padding-top: 0;
 }
-
+.App-header-text-2 {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vw;
+  color: black;
+  padding-top: 0;
+}
 .App-text {
   align-items: center;
   justify-content: center;
