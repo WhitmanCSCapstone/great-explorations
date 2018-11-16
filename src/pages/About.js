@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../App.css';
 
 class About extends Component {
-    
+
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
@@ -11,12 +11,12 @@ class About extends Component {
                         About page!
                     </p>
                     <p className="App-text">
-                        Our information:
+                        Our information: TEST
                     </p>
                 </div>
 
             </div>
-        
+
         )
     }
 }
