@@ -6,20 +6,23 @@ class Sponsors extends Component {
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
-                <div className="App-header-text">
+                <div>
                     <p className="App-header-text">
-                        Sponsored by:
+                        Our Sponsors:
                     </p>
                     <p className="App-text">
-                        Our sponsors:
+                        We would like to thank these sponsors for their continuous support:<br></br><br></br>
                         <ul>
                         <li> Great Explorations in Education </li>
                         <li> AAUW </li>
                         <li> Walla Walla Public Schools </li>
                         <li> Whitman College </li>
                         <li> YWCA of Walla Walla </li>
-                        To learn more, visit: wallawalla-wa.aauw.net
                         </ul>
+                      </p>
+                      <p>
+                        To learn more, visit: wallawalla-wa.aauw.net
+
                     </p>
                 </div>
 
