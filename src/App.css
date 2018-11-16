@@ -68,6 +68,13 @@
   font-weight: 300;
   color: black;
 }
+.App-text-small {
+  align-items: left;
+  justify-content: left;
+  font-weight: 600;
+  font-size: 1.7vw;
+  color: black;
+}
 
 .App-link {
   color: #61dafb;
