@@ -20,7 +20,7 @@ class ReadSheetTest extends React.Component {
           <div>
             <br />
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1sLdB-sNR0X2F5C6lMEPU_tagEjNvMIaq3Ar-1Krs9mtl8A/viewform?embedded=true"
-             width="600" height="1255" frameborder="0" marginheight="0" marginwidth="0">
+             width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">
               Loading...
             </iframe>
           </div>

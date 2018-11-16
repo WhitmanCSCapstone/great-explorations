@@ -18,10 +18,11 @@ export function SHEET_LOAD(callback) {
         raw => {
           const data = raw.result.values;
 
+          var n = 1;
           const workshops = data.map(workshop => ({
             category: workshop[0],
             instructor: workshop[1],
-            title: workshop[2],
+            title: '['+(n++)+'] '+workshop[2],
             description: workshop[3]
           })) || [];
 
