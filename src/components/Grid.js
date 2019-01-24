@@ -28,7 +28,7 @@ class WorkshopGrid extends React.Component {
         if (data) {
             var temp = data.workshops;
             var workshops = [];
-            temp.map((ws, i) => {workshops.push(ws)});
+            temp.map((ws, i) => {workshops.push(ws); return 0;});
             this.setState({ workshops });
         } else {
             this.setState({ error });
@@ -56,6 +56,7 @@ class WorkshopGrid extends React.Component {
                 table.push(<Row gutter={"5vw"}>{children}</Row>);
                 children = [];
             }
+            return 0;
         });
         if (count !== 0) {
           table.push(<Row gutter={"5vw"}>{children}</Row>);
