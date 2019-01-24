@@ -22,7 +22,7 @@ export function SHEET_LOAD(callback) {
           const workshops = data.map(workshop => ({
             category: workshop[0],
             instructor: workshop[1],
-            title: '['+(n++)+'] '+workshop[2],
+            title: '('+(n++)+') '+workshop[2],
             description: workshop[3]
           })) || [];
 
