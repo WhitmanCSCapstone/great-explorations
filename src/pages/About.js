@@ -13,8 +13,15 @@ class About extends Component {
                     <p className="App-text">
                         To provided 5th through 8th grade girls with an informal ,
                         and hands-on experience with careers that utilize science,
-                        technology, engineering and math. To provide an opportunity to 
+                        technology, engineering and math. To provide an opportunity to
                         meet and form personal contacts with women in these exciting careers.
+                    </p>
+                    <p className="App-header-text">
+                        Schedule
+                        <center style={{ fontSize: '1.7vw', color: 'mediumvioletred', fontWeight: '400'}}>Saturday, March 9, 2019 </center>
+                    </p>
+                    <p className="App-text">
+
                     </p>
                 </div>
 
