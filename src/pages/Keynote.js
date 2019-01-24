@@ -16,13 +16,9 @@ class Keynote extends Component {
                     </p>
 
                     <p className="App-text">
-                        MacDonald leads an interdisciplinary citizen science project
-                        called Aurorasaurus, which uses social media to predict the
-                        Northern Lights during the current solar maximum. In 2018
-                        MacDonald and her team announced the discovery of a new aurora
-                        called Strong Thermal Emission Velocity Enhancement (STEVE). See
-                        photo above. She currently works in the Goddard Space Flight Center.
-                        Liz is a Walla Walla High School alum, class of 1995.
+                        Dr. Liz MacDonald is a 1995 Wa-Hi graduate and former great Explorations
+                        attendee, works for NASA (National Aeronautical and Space Adminstration)
+                        at the Goddard
                     </p>
                 </div>
 
