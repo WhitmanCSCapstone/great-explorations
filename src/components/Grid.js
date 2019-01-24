@@ -56,8 +56,10 @@ class WorkshopGrid extends React.Component {
                 table.push(<Row gutter={"5vw"}>{children}</Row>);
                 children = [];
             }
-
         });
+        if (count !== 0) {
+          table.push(<Row gutter={"5vw"}>{children}</Row>);
+        }
 
         return table
     }
@@ -66,9 +68,6 @@ class WorkshopGrid extends React.Component {
         if (this.state.error) {
             return <div>{this.state.error}</div>;
         }
-        
-        // EXAMPLE. REMOVE THIS LINE LATER!
-        console.log(this.state.workshops);
         
         return (
             <div className="gutter-example">
