@@ -39,7 +39,7 @@ class Sponsors extends Component {
                         </ul>
                       </p>
                       <p>
-                        To learn more, visit: wallawalla-wa.aauw.net
+                        To learn more, visit: <a href="https://wallawalla-wa.aauw.net">wallawalla-wa.aauw.net</a>
 
                     </p>
                 </div>
