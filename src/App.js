@@ -9,6 +9,7 @@ import Keynote from './pages/Keynote.js';
 import Contact from './pages/Contact.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Layout, Menu} from 'antd';
+import { SHEET_INFO, WEBTEXT_LOAD, LANGUAGES } from './components/SheetUtil';
 
 const { Header, Content, Footer } = Layout;
 
@@ -22,8 +23,35 @@ const pages = {
 class App extends Component {
 
     state = {
+        language: LANGUAGES.english,
         current: "registration",
+        text: []
     }
+
+    componentDidMount() {
+        window.gapi.load("client", this.initClient);
+    }
+
+    initClient = () => {
+        window.gapi.client
+            .init({
+                apiKey: SHEET_INFO.apiKey,
+                discoveryDocs: SHEET_INFO.discoveryDocs
+            })
+            .then(() => {
+                WEBTEXT_LOAD(this.onLoad,this.state.language);
+        });
+    }
+
+    onLoad = (data, error) => {
+        var current = this.state.current
+        if (data) {
+            this.setState({ text: data });
+        } else {
+            this.setState({ current: current, text: error });
+        }
+    }
+
 
     handleClick = (e) => {
         console.log('click ', e);
@@ -86,7 +114,7 @@ class App extends Component {
 
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Whitman College Copyright ©2018 Melissa Kohl, Kirk Lange, and Jack Stewart
+{this.state.text[1]}
                 </Footer>
             </Layout>
           </Router>

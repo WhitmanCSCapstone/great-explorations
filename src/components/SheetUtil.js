@@ -6,7 +6,13 @@ export var SHEET_INFO = {
 //  apiKey: "AIzaSyDQD6bkeo-BpLKpL3IVlQotsbJ1uKP6_XE",
   discoveryDocs: 
     ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-  spreadsheetId: "12zh88Vmnqh5L2xKJySklLD2ZkIlr0vv9OepqLMp4rT0"
+  spreadsheetId: "12zh88Vmnqh5L2xKJySklLD2ZkIlr0vv9OepqLMp4rT0",
+  textsheetId: "1wJ5Bfu0MV9ZXWkrJOv0ltSBCQgRPGFARALKmfPG7uaM"
+};
+
+export var LANGUAGES = {
+  english: 0,
+  spanish: 1
 };
 
 export function SHEET_LOAD(callback) {
@@ -31,6 +37,28 @@ export function SHEET_LOAD(callback) {
           callback({
             workshops
           });
+        },
+        raw => {
+          callback(false, raw.result.error);
+        }
+      );
+  });
+};
+
+// English: 0, Spanish: 1
+export function WEBTEXT_LOAD(callback, langID) {
+  var langLetter = "B"
+  langLetter = langLetter.substring(0, langLetter.length - 1) + String.fromCharCode(langLetter.charCodeAt(langLetter.length - 1) + langID)
+  window.gapi.client.load("sheets", "v4", () => {
+    window.gapi.client.sheets.spreadsheets.values
+      .get({
+        spreadsheetId: SHEET_INFO.textsheetId,
+        range: "Sheet1!"+langLetter+"2:"+langLetter
+      })
+      .then(
+        raw => {
+          const data = raw.result.values
+          callback(data);
         },
         raw => {
           callback(false, raw.result.error);
