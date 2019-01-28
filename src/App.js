@@ -86,7 +86,7 @@ class App extends Component {
 
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Whitman College Copyright ©2018 Melissa Kohl, Kirk Lange, and Jack Stewart
+                    Whitman College Copyright ©2019 Melissa Kohl, Kirk Lange, and Jack Stewart
                 </Footer>
             </Layout>
           </Router>
