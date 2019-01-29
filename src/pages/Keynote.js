@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './../App.css';
 import pic1 from './../grex_images/Dr_Liz_Cover.jpg';
 
@@ -20,8 +21,7 @@ class Keynote extends Component {
                     <p className="App-text">
                         Dr. Liz MacDonald, a 1995 Wa-Hi graduate and former great Explorations attendee,
                         works for NASA (National Aeronautical and Space Adminstration) at the Goddard Space
-                        Flight center in Maryland. She leads a citizen science project call Aurorasaurus
-                        (http://www.aurorasaurus.org/), which uses citizen observations and social media
+                        Flight center in Maryland. She leads a citizen science project call <a href="http://www.aurorasaurus.org/">Aurorasaurus</a>, which uses citizen observations and social media
                         to predict the Northern Lights, which can even be seen in Washington! In 2018,
                         she annouced the discovery of a new aurora called STEVE (Strong thermal Emission Velocity
                         Enhancement).<br/> <br/>
