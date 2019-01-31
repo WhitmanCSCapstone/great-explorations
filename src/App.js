@@ -25,7 +25,7 @@ const pages = {
 class App extends Component {
 
     state = {
-        current: "registration",
+        current: this.props.location,
     }
 
     handleClick = (e) => {
