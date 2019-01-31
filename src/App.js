@@ -7,6 +7,7 @@ import Payment from './pages/Payment.js';
 import FAQ from './pages/FAQ.js';
 import Keynote from './pages/Keynote.js';
 import Contact from './pages/Contact.js';
+import Schedule from './pages/Schedule.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Layout, Menu} from 'antd';
 
@@ -14,6 +15,7 @@ const { Header, Content, Footer } = Layout;
 
 const pages = {
   about: About,
+  schedule: Schedule,
   registration: Registration,
   payment: Payment,
   sponsors: Sponsors,
