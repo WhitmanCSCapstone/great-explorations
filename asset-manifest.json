@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.4a03c562.chunk.css",
-  "main.js": "/static/js/main.37e9877d.chunk.js",
-  "main.js.map": "/static/js/main.37e9877d.chunk.js.map",
+  "main.js": "/static/js/main.61bae9ea.chunk.js",
+  "main.js.map": "/static/js/main.61bae9ea.chunk.js.map",
   "static/css/1.b831ef6c.chunk.css": "/static/css/1.b831ef6c.chunk.css",
   "static/js/1.b0f8d8a6.chunk.js": "/static/js/1.b0f8d8a6.chunk.js",
   "static/js/1.b0f8d8a6.chunk.js.map": "/static/js/1.b0f8d8a6.chunk.js.map",
@@ -15,11 +15,11 @@
   "static/media/IMG_5725.jpg": "/static/media/IMG_5725.3e608f18.jpg",
   "static/media/Liz_Pic.jpg": "/static/media/Liz_Pic.090360df.jpg",
   "static/media/auroraKeynote.jpg": "/static/media/auroraKeynote.05a501d5.jpg",
-  "static/media/ImageScroll.css": "/static/media/slick.f97e3bbf.svg",
+  "static/media/ImageScroll.css": "/static/media/slick.d41f55a7.ttf",
   "static/media/IMG_5710.jpg": "/static/media/IMG_5710.be4749a8.jpg",
   "static/css/main.4a03c562.chunk.css.map": "/static/css/main.4a03c562.chunk.css.map",
   "static/css/1.b831ef6c.chunk.css.map": "/static/css/1.b831ef6c.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.31adfedeb3aece2b648797b15579786f.js": "/precache-manifest.31adfedeb3aece2b648797b15579786f.js",
+  "precache-manifest.098e90824f44dcb62041314a6d4f1cd6.js": "/precache-manifest.098e90824f44dcb62041314a6d4f1cd6.js",
   "service-worker.js": "/service-worker.js"
 }
