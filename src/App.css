@@ -40,6 +40,7 @@
   padding: 0px 0px 0px 0px;
 }
 
+
 .App-header-text {
   overflow: hidden;
   display: flex;
@@ -48,7 +49,7 @@
   justify-content: center;
   font-size: 2.5vw;
   font-weight: 500;
-  color: red;
+  color: mediumvioletred;
   padding-top: 0;
 }
 .App-header-text-2 {
@@ -68,6 +69,15 @@
   font-weight: 300;
   color: black;
 }
+
+.App-text-subheader {
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: 400;
+  color: darkblue;
+}
+
 .App-text-small {
   align-items: left;
   justify-content: left;
@@ -75,6 +85,12 @@
   font-size: 1.7vw;
   color: black;
 }
+
+.schedule {   align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  font-weight: 300;
+  color: black;}
 
 .App-link {
   color: #61dafb;
