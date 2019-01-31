@@ -2,11 +2,11 @@
 
 export var SHEET_INFO = {
   apiKey: "AIzaSyBIe-MGvrJ2560PsAgDJhbou_ggIa3Ys6A",
-// Switch to apiKey below eventually. For some reason it's not working now... (1/24/2019 12AM)
-//  apiKey: "AIzaSyDQD6bkeo-BpLKpL3IVlQotsbJ1uKP6_XE",
+// Switch to apiKey below eventually. For some reason it's not working now... (1/30/2019 7PM)
+//  apiKey: "AIzaSyDb5ZXM6uhamvy-SZ80g7gME_oebjO_IZs",
   discoveryDocs: 
     ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-  spreadsheetId: "12zh88Vmnqh5L2xKJySklLD2ZkIlr0vv9OepqLMp4rT0"
+  spreadsheetId: "1yZWPh8McX-D2mZ9roKmCz56e9Te2P4w4TsVA5JdHO8g"
 };
 
 export function SHEET_LOAD(callback) {
