@@ -14,20 +14,20 @@ const customPanelStyle = {
 };
 
 class FAQ extends Component {
-    
+
     render() {
         const registerList = [
           {description: 'Register online at https://gewallawalla.com/registration', key: 0},
           {description: 'Mail the registration form to Great Explorations, c/o Carol Morgan 1765 Gray Lynn Dr, Walla Walla, WA 99362.', key: 1},
           {description: 'Drop off the completed registration form and payment at the YWCA, 213 S. First St, Walla Walla, WA, 509-525-2570 (open M-Th, 9a-6p; Fri 8:30a-5:30p).', key: 2}
         ];
-        
+
         const paymentList = [
           {description: 'Pay online during online registration. You may also pay using an option below if you register online.', key: 0},
           {description: 'Mail $5 cash or a check (payable to Great Explorations) to: Great Explorations, c/o Carol Morgan 1765 Gray Lynn Dr, Walla Walla, WA 99362.  Include a copy of the student’s registration form or include the student’s full name, address, a phone number where a parent or student can be reached, school and grade.', key: 1},
           {description: 'Drop off $5 cash or check to the YWCA, 213 S. First St, Walla Walla, WA, 509-525-2570 (open M-Th, 9a-6p; Fri 8:30a-5:30p).  Include a copy of the student’s registration form or include the student’s full name, address a phone number where a parent or student can be reached, school and grade.', key: 2}
         ];
-        
+
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
@@ -37,7 +37,7 @@ class FAQ extends Component {
                 </div>
                 <div>
                     <Collapse bordered={false} defaultActiveKey={['1']}>
-                        <Panel header="PRE-REGISTRATION IS REQURED" key="1" style={customPanelStyle}>
+                        <Panel header="PRE-REGISTRATION IS REQUIRED" key="1" style={customPanelStyle}>
                           <p> We can only accommodate approximately 450 students. In 2017, those spots were all filled a week before the conference. Students who register after the conference is full will be placed on a waiting list and notified if space becomes available. Some students on the waiting list will be able to attend the conference due to cancellations prior to March 9th and/or no-shows the day of the conference. Students on the waiting list who are not admitted to the conference will have their registration fee returned shortly after the conference. </p>
                         </Panel>
                         <Panel header="How do I register?" key="2" style={customPanelStyle}>
@@ -56,7 +56,7 @@ class FAQ extends Component {
                           <p> The registration fee is $5 per person. Scholarships are available…contact Carol no later than Wed, March 6: call 509-520-9977 or email gewallawalla@gmail.com </p>
                         </Panel>
                         <Panel header="How do I pay?" key="4" style={customPanelStyle}>
-                          <p> 
+                          <p>
                             <ol>
                                 {paymentList.map(pay => {
                                   return (
@@ -82,7 +82,7 @@ class FAQ extends Component {
                 </div>
 
             </div>
-        
+
         )
     }
 }
