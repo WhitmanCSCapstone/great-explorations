@@ -92,6 +92,12 @@
   font-weight: 300;
   color: black;}
 
+.picture {   align-items: center;
+  justify-content: center;
+  font-size: 1.25vw;
+  font-weight: 300;
+  color: black;}
+
 .App-link {
   color: #61dafb;
 }
