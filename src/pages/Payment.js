@@ -25,8 +25,15 @@ class Payment extends Component {
                     <Collapse bordered={true} defaultActiveKey={['3']}>
                         <Panel header="Pay online" key="1" style={customPanelStyle}>
                             <p> 
-                                Click on the link below to pay the $5 fee online. <br></br><br></br>
-                                [LINK TO PAYPAL HERE]
+                                Click on the button below to pay the $5 fee online. <br></br><br></br>
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick" />
+                                    <input type="hidden" name="hosted_button_id" value="X96WALSTDBZR8" />
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                                </form>
+
+
                             </p>
                         </Panel>
                         <Panel header="Pay at the YWCA" key="2" style={customPanelStyle}>
