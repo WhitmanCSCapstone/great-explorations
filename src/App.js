@@ -25,7 +25,7 @@ const pages = {
 class App extends Component {
 
     state = {
-        current: "registration",
+        current: this.props.location,
     }
 
     handleClick = (e) => {
@@ -42,7 +42,7 @@ class App extends Component {
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={[this.state.current]}
+                        defaultSelectedKeys={["registration"]}
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
