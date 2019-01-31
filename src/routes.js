@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, browserHistory, Router } from 'react-router';
 
 /**
  * Import all page components here
@@ -19,6 +19,7 @@ import Schedule from './pages/Schedule.js';
  * Don't forget to import the components above after adding new route.
  */
 export default (
+  <Router history={browserHistory}>
   <Route path="/" component={App}>
     <IndexRoute component={Registration} />
     <Route path="/about" component={About} />
@@ -30,4 +31,5 @@ export default (
     <Route path="/faq" component={FAQ} />
     <Route path="/contact" component={Contact} />
   </Route>
+  </Router>
 );
