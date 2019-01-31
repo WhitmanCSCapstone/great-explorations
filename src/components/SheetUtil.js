@@ -6,7 +6,7 @@ export var SHEET_INFO = {
 //  apiKey: "AIzaSyDb5ZXM6uhamvy-SZ80g7gME_oebjO_IZs",
   discoveryDocs: 
     ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-  spreadsheetId: "1yZWPh8McX-D2mZ9roKmCz56e9Te2P4w4TsVA5JdHO8g"
+  spreadsheetId: "1yZWPh8McX-D2mZ9roKmCz56e9Te2P4w4TsVA5JdHO8g",
   textsheetId: "1f9T3uKqF24H3wOBKweVgFqViDA5dvBOhXsf25zFLXek"
 };
 
