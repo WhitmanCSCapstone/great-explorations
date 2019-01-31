@@ -15,7 +15,7 @@ class Keynote extends Component {
                     </p>
 
                     <p className="App-header-text-2">
-                        <center>This year, we are pleased to announce
+                        <center>This year, we are pleased to announce<br/>
                          Dr. Elizabeth (Liz) MacDonald as our 2019 Keynote Speaker!</center>
                     </p>
                     <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
