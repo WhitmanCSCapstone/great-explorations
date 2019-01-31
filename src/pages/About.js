@@ -24,7 +24,7 @@ class About extends Component {
                         8:20 to 8:50 am ......... Student Check-in <span class="schedule">(Cordiner Hall Foyer)</span><br/>
                         9:00 to 10:00 am ...... Orientation / Keynote <span class="schedule">(Cordiner Hall Foyer)</span><br/>
                         10:15 to 11:15 am .... Workshop A <span class="schedule">(Science/Olin Hall)</span><br/>
-                        11:30 to 12:15 pm .... Break / Food* <span class="schedule">(Cordiner Hall Foyer)</span><br/>
+                        11:30 to 12:15 pm .... Break / Food* <span class="schedule"></span><br/>
                         12:30 to 1:30 pm ......  Workshop B <span class="schedule">(Science/Olin Hall)</span><br/>
                         1:40 to 2:40 pm ......... Workshop C / evals <span class="schedule">(Science/Olin Hall)</span><br/>
                         2:45 pm ...................... Students Escorted back to Cordiner Hall for pick-up<br/><br/><br/>
