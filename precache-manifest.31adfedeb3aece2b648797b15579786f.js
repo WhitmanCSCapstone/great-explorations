@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/IMG_5700.8cc3d730.jpg"
   },
   {
-    "revision": "78b1df6337a5089d4c35",
-    "url": "/static/css/main.e0381cb6.chunk.css"
+    "revision": "37e9877dda4cef31f257",
+    "url": "/static/css/main.4a03c562.chunk.css"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/static/media/slick.d41f55a7.ttf"
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "b58eee91032754312182",
-    "url": "/static/js/1.b58eee91.chunk.js"
+    "revision": "b0f8d8a6c57f48703567",
+    "url": "/static/js/1.b0f8d8a6.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/static/media/IMG_5740.e51ba331.jpg"
   },
   {
-    "revision": "78b1df6337a5089d4c35",
-    "url": "/static/js/main.78b1df63.chunk.js"
+    "revision": "37e9877dda4cef31f257",
+    "url": "/static/js/main.37e9877d.chunk.js"
   },
   {
     "revision": "3609d22f31d86c29cdc630c22d9fbd32",
@@ -48,8 +48,12 @@ self.__precacheManifest = [
     "url": "/static/media/IMG_5725.3e608f18.jpg"
   },
   {
-    "revision": "1dc222f0bcd7756568cf71a79fe8360a",
-    "url": "/static/media/Dr_Liz_Cover.1dc222f0.jpg"
+    "revision": "090360dfe8aabf42ef014ad20c760c8a",
+    "url": "/static/media/Liz_Pic.090360df.jpg"
+  },
+  {
+    "revision": "05a501d56ac3311dcdad1becccbad823",
+    "url": "/static/media/auroraKeynote.05a501d5.jpg"
   },
   {
     "revision": "ced611daf7709cc778da928fec876475",
@@ -60,15 +64,15 @@ self.__precacheManifest = [
     "url": "/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/static/media/slick.f97e3bbf.svg"
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "b58eee91032754312182",
-    "url": "/static/css/1.1ee7cee8.chunk.css"
+    "revision": "b0f8d8a6c57f48703567",
+    "url": "/static/css/1.b831ef6c.chunk.css"
   },
   {
-    "revision": "f99bcbbcfc39ba6dd95d257a976ae9c0",
+    "revision": "3eeddbe9b57e50d1a9497344e66b3876",
     "url": "/index.html"
   }
 ];
