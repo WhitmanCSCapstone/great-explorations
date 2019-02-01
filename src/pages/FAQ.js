@@ -24,8 +24,8 @@ class FAQ extends Component {
 
         const paymentList = [
           {description: 'Pay online during online registration. You may also pay using an option below if you register online.', key: 0},
-          {description: 'Mail $5 cash or a check (payable to Great Explorations) to: Great Explorations, c/o Carol Morgan 1765 Gray Lynn Dr, Walla Walla, WA 99362.  Include a copy of the student’s registration form or include the student’s full name, address, a phone number where a parent or student can be reached, school and grade.', key: 1},
-          {description: 'Drop off $5 cash or check to the YWCA, 213 S. First St, Walla Walla, WA, 509-525-2570 (open M-Th, 9a-6p; Fri 8:30a-5:30p).  Include a copy of the student’s registration form or include the student’s full name, address a phone number where a parent or student can be reached, school and grade.', key: 2}
+          {description: 'Mail $5 cash or a check (payable to Great Explorations) to: Great Explorations, c/o Carol Morgan 1765 Gray Lynn Dr, Walla Walla, WA 99362.  Include a copy of the student\'s registration form or include the student\'s full name, address, a phone number where a parent or student can be reached, school and grade.', key: 1},
+          {description: 'Drop off $5 cash or check to the YWCA, 213 S. First St, Walla Walla, WA, 509-525-2570 (open M-Th, 9a-6p; Fri 8:30a-5:30p).  Include a copy of the student\'s registration form or include the student\'s full name, address a phone number where a parent or student can be reached, school and grade.', key: 2}
         ];
 
         return (

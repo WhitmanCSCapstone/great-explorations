@@ -25,7 +25,7 @@ const pages = {
 class App extends Component {
 
     state = {
-        current: this.props.location,
+        current: this.props.location.pathname,
     }
 
     handleClick = (e) => {
@@ -48,7 +48,7 @@ class App extends Component {
                     >
                         {Object.keys(pages).map((name) => {
                              return(
-                               <Menu.Item key={name}>
+                               <Menu.Item key={"/"+name}>
                                  <Link to={"/"+name}>
                                    {name.charAt(0).toUpperCase() + name.slice(1)}
                                  </Link>
