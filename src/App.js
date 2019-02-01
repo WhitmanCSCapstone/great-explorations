@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Registration from './pages/Registration.js';
-import About from './pages/About.js';
-import Sponsors from './pages/Sponsors.js';
-import Payment from './pages/Payment.js';
-import FAQ from './pages/FAQ.js';
-import Keynote from './pages/Keynote.js';
-import Contact from './pages/Contact.js';
-import Schedule from './pages/Schedule.js';
 import { Link } from 'react-router';
 import { Layout, Menu} from 'antd';
 
 const { Header, Content, Footer } = Layout;
-
-const pages = {
-  about: About,
-  schedule: Schedule,
-  registration: Registration,
-  payment: Payment,
-  sponsors: Sponsors,
-  keynote: Keynote
-}
 
 class App extends Component {
 
@@ -46,21 +29,42 @@ class App extends Component {
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
-                        {Object.keys(pages).map((name) => {
-                             return(
-                               <Menu.Item key={"/"+name}>
-                                 <Link to={"/"+name}>
-                                   {name.charAt(0).toUpperCase() + name.slice(1)}
-                                 </Link>
-                               </Menu.Item>
-                             )
-                          })}
-                        <Menu.Item key={"faq"}>
+                        <Menu.Item key={"/about"}>
+                             <Link to={"/about"}>
+                               {"About"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/schedule"}>
+                             <Link to={"/schedule"}>
+                               {"Schedule"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/"}>
+                             <Link to={"/registration"}>
+                               {"Registration"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/payment"}>
+                             <Link to={"/payment"}>
+                               {"Payment"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/sponsors"}>
+                             <Link to={"/sponsors"}>
+                               {"Sponsors"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/keynote"}>
+                             <Link to={"/keynote"}>
+                               {"Keynote"}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"/faq"}>
                              <Link to={"/faq"}>
                                {"FAQs"}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"contact"}>
+                        <Menu.Item key={"/contact"}>
                              <Link to={"/contact"}>
                                {"Contact Us"}
                              </Link>
