@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import { Collapse } from 'antd';
+import { Collapse, Button } from 'antd';
 
 const Panel = Collapse.Panel;
 
@@ -20,20 +20,12 @@ class Payment extends Component {
                     <p className="App-header-text">
                         Payment Options
                     </p>
-                </div>
-                <div>
                     <Collapse bordered={true} defaultActiveKey={['3']}>
                         <Panel header="Pay online" key="1" style={customPanelStyle}>
-                            <p> 
-                                Click on the button below to pay the $5 fee online. <br></br><br></br>
-                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                    <input type="hidden" name="cmd" value="_s-xclick" />
-                                    <input type="hidden" name="hosted_button_id" value="X96WALSTDBZR8" />
-                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                                </form>
-
-
+                            <p>
+                                <Button type="primary">
+                                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X96WALSTDBZR8&source=url"> Make $5 Payment Online</a>
+                                </Button>
                             </p>
                         </Panel>
                         <Panel header="Pay at the YWCA" key="2" style={customPanelStyle}>
@@ -46,11 +38,18 @@ class Payment extends Component {
                         </Panel>
                         <Panel header="Pay by mail" key="3" style={customPanelStyle}>
                             <p> 
-                                Please mail $5 cash or a check (payable to Great Explorations in Education) to the following address  no later than Wednesday, March 6. Be sure to include your name, home phone, school, and grade with your payment! <br></br><br></br>
+                                Mail $5 cash or check (payable to Great Explorations in Education) to the following address  no later than Wednesday, March 6. Be sure to include your name, home phone, school, and grade with your payment! <br></br><br></br>
                                 Great Explorations<br></br>
                                 Carol Morgan<br></br>
                                 1765 Gray Lynn Drive<br></br>
                                 Walla Walla, WA 99362
+                            </p>
+                        </Panel>
+                        <Panel header="Request Scholarship" key="4" style={customPanelStyle}>
+                            <p> 
+                                If you would like to request a scholarship to cover the $5 fee, please call or email Carol Morgan no later than Wednesday, March 6:<br></br><br></br>
+                                Call: (509) 520-9977 <br></br>
+                                Email: gewallawalla@gmail.com
                             </p>
                         </Panel>
                         
