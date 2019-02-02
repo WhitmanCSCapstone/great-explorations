@@ -38,7 +38,7 @@ class Payment extends Component {
                         </Panel>
                         <Panel header="Pay by mail" key="3" style={customPanelStyle}>
                             <p> 
-                                Please mail $5 cash or a check (payable to Great Explorations in Education) to the following address  no later than Wednesday, March 6. Be sure to include your name, home phone, school, and grade with your payment! <br></br><br></br>
+                                Mail $5 cash or check (payable to Great Explorations in Education) to the following address  no later than Wednesday, March 6. Be sure to include your name, home phone, school, and grade with your payment! <br></br><br></br>
                                 Great Explorations<br></br>
                                 Carol Morgan<br></br>
                                 1765 Gray Lynn Drive<br></br>

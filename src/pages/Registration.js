@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Route } from 'react-router';
-import { BackTop, message, Button } from 'antd';
+import { BackTop, message, Button, Affix } from 'antd';
 import './../App.css';
 import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
@@ -35,14 +35,23 @@ class Registration extends Component {
                     <p className="App-header-text">
                         <WorkshopGrid />
                     </p>
+                    <p align="right">
+                        <Affix offsetTop={300}>
+                            <Button type="primary" 
+                                onClick={() => {
+                                  window.scrollTo(0, 1750);
+                                }}>{"Top of Registration Form"}
+                            </Button>
+                        </Affix>
+                    </p>
                     <p className="App-header-text">
                         <EmbedForm />
                     </p>
                     <p>
                         <center>
-                            <Button type="primary" onClick={this.success}>
+                            <Button type="danger" onClick={this.success} ghost>
                                 <Link to={"/payment"}>
-                                   {"Please click here after hitting submit!"}
+                                   {"Please click here AFTER hitting submit!"}
                                 </Link>
                             </Button>
                         </center>
