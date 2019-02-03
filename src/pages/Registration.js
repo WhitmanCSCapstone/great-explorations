@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Link, Route } from 'react-router';
-import { BackTop, message, Button, Affix } from 'antd';
+import { message, Button, Affix } from 'antd';
 import './../App.css';
 import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
@@ -10,6 +8,7 @@ import ImageScroll from './../components/ImageScroll.js';
 class Registration extends Component {
     
     success = () => {
+      window.location.replace("/#/payment");
       message.success('Thank you for registering for Great Explorations! Please use one of the below options to pay the $5 fee.', 10);
     };
     
@@ -50,13 +49,10 @@ class Registration extends Component {
                     <p>
                         <center>
                             <Button type="danger" onClick={this.success} ghost>
-                                <Link to={"/payment"}>
-                                   {"Please click here AFTER hitting submit!"}
-                                </Link>
+                               {"Please click here AFTER hitting submit!"}
                             </Button>
                         </center>
                     </p>
-                    
                 </div>
             </div>
 
