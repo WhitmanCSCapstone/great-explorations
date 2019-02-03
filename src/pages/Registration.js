@@ -10,7 +10,7 @@ import ImageScroll from './../components/ImageScroll.js';
 class Registration extends Component {
     
     success = () => {
-      message.success('Thank you for registering for Great Explorations! Please use one of the below options to pay the $5 fee.', 10);
+      message.success('Thank you for registering for Great Explorations! Please use one of the below options to pay the $5 fee.', 5);
     };
     
     render() {
@@ -50,9 +50,8 @@ class Registration extends Component {
                     <p>
                         <center>
                             <Button type="danger" onClick={this.success} ghost>
-                                <Link to={"/payment"}>
-                                   {"Please click here AFTER hitting submit!"}
-                                </Link>
+                                <a href="https://gewallawalla.com/#/payment"> Please click here AFTER hitting submit!
+                                </a>
                             </Button>
                         </center>
                     </p>
