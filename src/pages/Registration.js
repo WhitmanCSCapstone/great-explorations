@@ -38,20 +38,19 @@ class Registration extends Component {
                         <Affix offsetTop={300}>
                             <Button type="primary" 
                                 onClick={() => {
-                                  window.scrollTo(0, 1750);
+                                  window.location.hash = "#registration";
                                 }}>{"Top of Registration Form"}
                             </Button>
                         </Affix>
-                    </p>
-                    <p className="App-header-text">
-                        <EmbedForm />
-                    </p>
-                    <p>
-                        <center>
+                        <Affix offsetTop={360}>
                             <Button type="danger" onClick={this.success} ghost>
                                {"Please click here AFTER hitting submit!"}
                             </Button>
-                        </center>
+                        </Affix>
+                    </p>
+                    // Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing
+                    <p className="App-header-text" id="registration">
+                        <EmbedForm />
                     </p>
                 </div>
             </div>
