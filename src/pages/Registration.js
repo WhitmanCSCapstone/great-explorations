@@ -48,7 +48,7 @@ class Registration extends Component {
                             </Button>
                         </Affix>
                     </p>
-                    // Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing
+                    {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
                     <p className="App-header-text" id="registration">
                         <EmbedForm />
                     </p>
