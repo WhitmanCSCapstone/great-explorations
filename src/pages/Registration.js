@@ -34,6 +34,9 @@ class Registration extends Component {
                     <p className="App-header-text">
                         <WorkshopGrid />
                     </p>
+                    <p className="App-text-tiny"><i>
+                      If you experience any technical difficulties, please <a target="_blank" href="/#/contact">contact us</a> and try to use a different web browser such as <a target="_blank" href="https://www.google.com/chrome/">Chrome</a>.<br></br>
+                    </i></p>
                     <p align="right">
                         <Affix offsetTop={300}>
                             <Button type="primary" 
