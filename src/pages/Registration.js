@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Link, Route } from 'react-router';
-import { BackTop, message, Button, Affix } from 'antd';
+import { message, Button, Affix } from 'antd';
 import './../App.css';
 import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
@@ -10,7 +8,8 @@ import ImageScroll from './../components/ImageScroll.js';
 class Registration extends Component {
     
     success = () => {
-      message.success('Thank you for registering for Great Explorations! Please use one of the below options to pay the $5 fee.', 5);
+      window.location.replace("/#/payment");
+      message.success('Thank you for registering for Great Explorations! Please use one of the below options to pay the $5 fee.', 10);
     };
     
     render() {
@@ -35,27 +34,27 @@ class Registration extends Component {
                     <p className="App-header-text">
                         <WorkshopGrid />
                     </p>
+                    <p className="App-text-tiny"><i>
+                      If you experience any technical difficulties, please <a target="_blank" href="/#/contact">contact us</a> and try to use a different web browser such as <a target="_blank" href="https://www.google.com/chrome/">Chrome</a>.<br></br>
+                    </i></p>
                     <p align="right">
                         <Affix offsetTop={300}>
                             <Button type="primary" 
                                 onClick={() => {
-                                  window.scrollTo(0, 1750);
+                                  window.location.hash = "#registration";
                                 }}>{"Top of Registration Form"}
                             </Button>
                         </Affix>
+                        <Affix offsetTop={360}>
+                            <Button type="danger" onClick={this.success} ghost>
+                               {"Please click here AFTER hitting submit!"}
+                            </Button>
+                        </Affix>
                     </p>
-                    <p className="App-header-text">
+                    {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
+                    <p className="App-header-text" id="registration">
                         <EmbedForm />
                     </p>
-                    <p>
-                        <center>
-                            <Button type="danger" onClick={this.success} ghost>
-                                <a href="https://gewallawalla.com/#/payment"> Please click here AFTER hitting submit!
-                                </a>
-                            </Button>
-                        </center>
-                    </p>
-                    
                 </div>
             </div>
 

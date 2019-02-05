@@ -23,8 +23,10 @@ class Payment extends Component {
                     <Collapse bordered={true} defaultActiveKey={['3']}>
                         <Panel header="Pay online" key="1" style={customPanelStyle}>
                             <p>
-                                <Button type="primary">
-                                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X96WALSTDBZR8&source=url"> Make $5 Payment Online</a>
+                                <Button type="primary" onClick={() => {
+                                    window.location.replace("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X96WALSTDBZR8&source=url");
+                                }}>
+                                    Make $5 Payment Online
                                 </Button>
                             </p>
                         </Panel>
