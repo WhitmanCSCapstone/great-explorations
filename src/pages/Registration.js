@@ -38,22 +38,29 @@ class Registration extends Component {
                       If you experience any technical difficulties, please <a target="_blank" href="/#/contact">contact us</a> and try to use a different web browser such as <a target="_blank" href="https://www.google.com/chrome/">Chrome</a>.<br></br>
                     </i></p>
                     <p align="right">
-                        <Affix offsetTop={300}>
+                        <Affix offsetTop={200}>
                             <Button type="primary" 
                                 onClick={() => {
                                   window.location.hash = "#registration";
                                 }}>{"Top of Registration Form"}
                             </Button>
-                        </Affix>
-                        <Affix offsetTop={360}>
-                            <Button type="danger" onClick={this.success} ghost>
-                               {"Please click here AFTER hitting submit!"}
+                        </Affix> <br></br>
+                        <Affix offsetTop={255}>
+                            <Button type="danger" 
+                                onClick={() => {
+                                  window.location.hash = "#registration";
+                                }}>{"Blank White Page? Click here!"}
                             </Button>
                         </Affix>
                     </p>
                     {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
                     <p className="App-header-text" id="registration">
                         <EmbedForm />
+                    </p>
+                    <p align="center">
+                        <Button type="primary" onClick={this.success} ghost>
+                           {"Please click here AFTER hitting submit!"}
+                        </Button>
                     </p>
                 </div>
             </div>
