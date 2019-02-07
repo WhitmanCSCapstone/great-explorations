@@ -58,8 +58,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 2.5vw;
-  color: black;
+  font-size: 2.15vw;
+  color: darkblue;
   padding-top: 0;
 }
 .App-text {
@@ -86,9 +86,24 @@
   color: black;
 }
 
+.App-text-tiny {
+  align-items: left;
+  justify-content: left;
+  font-weight: 600;
+  font-size: 1.0vw;
+  color: black;
+}
+
+
 .schedule {   align-items: center;
   justify-content: center;
   font-size: 1.5vw;
+  font-weight: 300;
+  color: black;}
+
+.picture {   align-items: center;
+  justify-content: center;
+  font-size: 1.25vw;
   font-weight: 300;
   color: black;}
 

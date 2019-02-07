@@ -7,18 +7,11 @@ import Sponsors from './pages/Sponsors.js';
 import FAQ from './pages/FAQ.js';
 import Keynote from './pages/Keynote.js';
 import Contact from './pages/Contact.js';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Layout, Menu, Checkbox } from 'antd';
 import { SHEET_INFO, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
+import { Link } from 'react-router';
 
 const { Header, Content, Footer } = Layout;
-
-const pages = {
-  about: About,
-  registration: Registration,
-  sponsors: Sponsors,
-  keynote: Keynote
-}
 
 class App extends Component {
 
@@ -50,6 +43,7 @@ class App extends Component {
 
     updateText() {
         this.setState({ text: WEBTEXT });
+        current: this.props.location.pathname,
     }
 
     handleClick = (e) => {
@@ -60,7 +54,6 @@ class App extends Component {
     }
     render() {
         return (
-          <Router>
             <Layout className="layout">
                 <Header>
                     <div className="logo" />
@@ -96,7 +89,7 @@ class App extends Component {
 {this.state.text[6]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"contact"}>
+                        <Menu.Item key={"/contact"}>
                              <Link to={"/contact"}>
 {this.state.text[7]}
                              </Link>
@@ -106,29 +99,12 @@ class App extends Component {
                 </Header>
 
                 <Content style={{ padding: '0 3vw 0 3vw', minHeight: '100vh'}}>
-                  <div>
-                    {Object.keys(pages).map((name) => {
-                       return(
-                         <Route exact path={"/" + name} component={pages[name]} key={name} />
-                       )
-                    })}
-                  </div>
-                  <div>
-                      <Route exact path={"/faq"} component={FAQ} key={"faq"} />
-                  </div>
-                  <div>
-                      <Route exact path={"/contact"} component={Contact} key={"contact"} />
-                  </div>
-                  <div>
-                      <Route exact path={"/"} component={Registration} key={"default"} />
-                  </div>
-
+                  {this.props.children}
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
 {this.state.text[1]}
                 </Footer>
             </Layout>
-          </Router>
         );
     }
 }
