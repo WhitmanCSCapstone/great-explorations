@@ -10,9 +10,27 @@ export var SHEET_INFO = {
   textsheetId: "1f9T3uKqF24H3wOBKweVgFqViDA5dvBOhXsf25zFLXek"
 };
 
-export var LANGUAGES = {
+export var WEBTEXT = [];
+
+var CALLBACKS = [];
+
+export function WEBTEXT_ADD_CALLBACK(callback) {
+    CALLBACKS.push(callback);
+}
+
+var LANGUAGES = {
   english: 0,
   spanish: 1
+};
+
+var LANGUAGE = LANGUAGES.english;
+
+export function SWITCH_LANGUAGE() {
+  if (LANGUAGE === LANGUAGES.english) {
+      LANGUAGE = LANGUAGES.spanish;
+  } else {
+      LANGUAGE = LANGUAGES.english;
+  }
 };
 
 export function SHEET_LOAD(callback) {
@@ -46,9 +64,9 @@ export function SHEET_LOAD(callback) {
 };
 
 // English: 0, Spanish: 1
-export function WEBTEXT_LOAD(callback, langID) {
+export function WEBTEXT_LOAD() {
   var langLetter = "B"
-  langLetter = langLetter.substring(0, langLetter.length - 1) + String.fromCharCode(langLetter.charCodeAt(langLetter.length - 1) + langID)
+  langLetter = langLetter.substring(0, langLetter.length - 1) + String.fromCharCode(langLetter.charCodeAt(langLetter.length - 1) + LANGUAGE)
   window.gapi.client.load("sheets", "v4", () => {
     window.gapi.client.sheets.spreadsheets.values
       .get({
@@ -57,11 +75,14 @@ export function WEBTEXT_LOAD(callback, langID) {
       })
       .then(
         raw => {
-          const data = raw.result.values
-          callback(data);
+          WEBTEXT = raw.result.values;
+          console.log(CALLBACKS);
+          for (var i=0; i<CALLBACKS.length; i++) {
+            console.log(i);
+            CALLBACKS[i]();
+          }
         },
         raw => {
-          callback(false, raw.result.error);
         }
       );
   });

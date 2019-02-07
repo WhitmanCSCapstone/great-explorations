@@ -8,8 +8,8 @@ import FAQ from './pages/FAQ.js';
 import Keynote from './pages/Keynote.js';
 import Contact from './pages/Contact.js';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Layout, Menu} from 'antd';
-import { SHEET_INFO, WEBTEXT_LOAD, LANGUAGES } from './components/SheetUtil';
+import { Layout, Menu, Checkbox } from 'antd';
+import { SHEET_INFO, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,13 +23,13 @@ const pages = {
 class App extends Component {
 
     state = {
-        language: LANGUAGES.english,
         current: "registration",
         text: []
     }
 
     componentDidMount() {
         window.gapi.load("client", this.initClient);
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
     }
 
     initClient = () => {
@@ -39,19 +39,18 @@ class App extends Component {
                 discoveryDocs: SHEET_INFO.discoveryDocs
             })
             .then(() => {
-                WEBTEXT_LOAD(this.onLoad,this.state.language);
+                WEBTEXT_LOAD();
         });
     }
 
-    onLoad = (data, error) => {
-        var current = this.state.current
-        if (data) {
-            this.setState({ text: data });
-        } else {
-            this.setState({ current: current, text: error });
-        }
+    langSwitch = () => {
+        SWITCH_LANGUAGE();
+        WEBTEXT_LOAD();
     }
 
+    updateText() {
+        this.setState({ text: WEBTEXT });
+    }
 
     handleClick = (e) => {
         console.log('click ', e);
@@ -72,25 +71,37 @@ class App extends Component {
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
-                        {Object.keys(pages).map((name) => {
-                             return(
-                               <Menu.Item key={name}>
-                                 <Link to={"/"+name}>
-                                   {name.charAt(0).toUpperCase() + name.slice(1)}
-                                 </Link>
-                               </Menu.Item>
-                             )
-                          })}
+                        <Menu.Item key={"about"}>
+                             <Link to={"/about"}>
+{this.state.text[2]}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"registration"}>
+                             <Link to={"/registration"}>
+{this.state.text[3]}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"sponsors"}>
+                             <Link to={"/sponsors"}>
+{this.state.text[4]}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"keynote"}>
+                             <Link to={"/keynote"}>
+{this.state.text[5]}
+                             </Link>
+                           </Menu.Item>
                         <Menu.Item key={"faq"}>
                              <Link to={"/faq"}>
-                               {"FAQs"}
+{this.state.text[6]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"contact"}>
                              <Link to={"/contact"}>
-                               {"Contact Us"}
+{this.state.text[7]}
                              </Link>
                            </Menu.Item>
+                        <Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>
                     </Menu>
                 </Header>
 
