@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Registration from './pages/Registration.js';
-import About from './pages/About.js';
-import Sponsors from './pages/Sponsors.js';
-//import Home from './pages/Home.js';
-import FAQ from './pages/FAQ.js';
-import Keynote from './pages/Keynote.js';
-import Contact from './pages/Contact.js';
 import { Layout, Menu, Checkbox } from 'antd';
 import { SHEET_INFO, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
 import { Link } from 'react-router';
@@ -33,6 +26,9 @@ class App extends Component {
             })
             .then(() => {
                 WEBTEXT_LOAD();
+            },
+            () => {
+                console.log("Error initializing Google API!");
         });
     }
 
@@ -43,7 +39,6 @@ class App extends Component {
 
     updateText() {
         this.setState({ text: WEBTEXT });
-        current: this.props.location.pathname,
     }
 
     handleClick = (e) => {
@@ -69,32 +64,42 @@ class App extends Component {
 {this.state.text[2]}
                              </Link>
                            </Menu.Item>
+                        <Menu.Item key={"schedule"}>
+                             <Link to={"/schedule"}>
+{this.state.text[3]}
+                             </Link>
+                           </Menu.Item>
                         <Menu.Item key={"registration"}>
                              <Link to={"/registration"}>
-{this.state.text[3]}
+{this.state.text[4]}
+                             </Link>
+                           </Menu.Item>
+                        <Menu.Item key={"payment"}>
+                             <Link to={"/payment"}>
+{this.state.text[5]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"sponsors"}>
                              <Link to={"/sponsors"}>
-{this.state.text[4]}
+{this.state.text[6]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"keynote"}>
                              <Link to={"/keynote"}>
-{this.state.text[5]}
+{this.state.text[7]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"faq"}>
                              <Link to={"/faq"}>
-{this.state.text[6]}
+{this.state.text[8]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"/contact"}>
                              <Link to={"/contact"}>
-{this.state.text[7]}
+{this.state.text[9]}
                              </Link>
                            </Menu.Item>
-                        <Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>
+                        {/*<Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>*/}
                     </Menu>
                 </Header>
 

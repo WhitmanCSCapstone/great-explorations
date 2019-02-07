@@ -1,41 +1,54 @@
 import React, { Component } from 'react';
 import './../App.css';
+import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 
 class Sponsors extends Component {
+
+    state = {
+        text: []
+    }
+
+    componentDidMount() {
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
+        this.updateText();
+    }
+
+    updateText() {
+        this.setState({ text: WEBTEXT });
+    }
 
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                     <p className="App-header-text">
-                        Our Sponsors
+                        {this.state.text[59]}
                     </p>
                     <p className="App-text-subheader">
-                        We would like to thank the following sponsors for their generous support of the 2019 Great Explorations in Science, Technology, Engineering and Math Conference.<br></br><br></br>
+                        {this.state.text[60]}<br></br><br></br>
                         <ul className="App-text">
-                        <li> American Association of University Women (<a href="https://wallawalla-wa.aauw.net">AAUW</a>) Walla Walla</li>
-                        <li> YWCA of Walla Walla </li>
-                        <li> Walla Walla Public Schools </li>
-                        <li> Whitman College </li>
-                        <li> YWCA of Walla Walla </li>
+                        <li>{this.state.text[61]}</li>
+                        <li>{this.state.text[62]}</li>
+                        <li>{this.state.text[63]}</li>
+                        <li>{this.state.text[64]}</li>
                         </ul>
                       </p>
                       <p className="App-text-subheader">
-                        General Operating Support<br></br><br></br>
+                        {this.state.text[65]}<br></br><br></br>
                         <ul className="App-text">
-                        <li> J.L. Stubblefield Trust </li> 
-                        <li> Clara and Art Bald Trust </li> 
-                        <li> Mary Garner Esary Trust </li> 
-                        <li> George T. Welch Testamentary Trust </li> 
-                        <li> Yancey P. Winans Testamentary Trust </li> 
-                        <li> Blue Mountain Community Foundation </li>
+                        <li>{this.state.text[66]}</li>
+                        <li>{this.state.text[67]}</li>
+                        <li>{this.state.text[68]}</li>
+                        <li>{this.state.text[69]}</li>
+                        <li>{this.state.text[70]}</li>
+                        <li>{this.state.text[71]}</li>
                         </ul>
                       </p>
                       <p className="App-text-subheader">
-                        Special Thanks To<br></br><br></br>
+                        {this.state.text[72]}<br></br><br></br>
                         <ul className="App-text">
-                        <li> Whitman College Computer Science Department </li> 
-                        <li> Dr. Janet Davis and the Senior Capstone Project team for developing and creating the new online registration website. </li> 
+                        <li>{this.state.text[73]}</li>
+                        <li>{this.state.text[74]}</li>
                         </ul>
                       </p>
                 </div>

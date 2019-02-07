@@ -1,33 +1,45 @@
 import React, { Component } from 'react';
 import './../App.css';
+import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 
 class Schedule extends Component {
+
+    state = {
+        text: []
+    }
+
+    componentDidMount() {
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
+        this.updateText();
+    }
+
+    updateText() {
+        this.setState({ text: WEBTEXT });
+    }
 
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
                   <p className="App-header-text">
-                    Schedule
-                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>Saturday, March 9, 2019 </center>
-                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>Cordiner Hall Lobby - Whitman Campus </center>
+                    {this.state.text[22]}
+                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[23]}</center>
+                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[24]}</center>
                     </p>
                     <p className="App-text">
-                    8:20 to 8:50 am ......... Student Check-in <span class="schedule">(Cordiner Hall Foyer)</span><br/>
-                    9:00 to 10:00 am ...... Orientation / Keynote <span class="schedule">(Cordiner Hall Foyer)</span><br/>
-                    10:15 to 11:15 am .... Workshop A <span class="schedule">(Science/Olin Hall)</span><br/>
-                    11:30 to 12:15 pm .... Break / Food* <span class="schedule"></span><br/>
-                    12:30 to 1:30 pm ......  Workshop B <span class="schedule">(Science/Olin Hall)</span><br/>
-                    1:40 to 2:40 pm ......... Workshop C / evals <span class="schedule">(Science/Olin Hall)</span><br/>
-                    2:45 pm ...................... Students Escorted back to Cordiner Hall for pick-up<br/><br/><br/>
+                    {this.state.text[25]} <span class="schedule">{this.state.text[26]}</span><br/>
+                    {this.state.text[27]}<span class="schedule">{this.state.text[28]}</span><br/>
+                    {this.state.text[29]}<span class="schedule">{this.state.text[30]}</span><br/>
+                    {this.state.text[31]}<span class="schedule">{this.state.text[32]}</span><br/>
+                    {this.state.text[33]}<span class="schedule">{this.state.text[34]}</span><br/>
+                    {this.state.text[35]}<span class="schedule">{this.state.text[36]}</span><br/>
+                    {this.state.text[37]}<span class="schedule">{this.state.text[38]}</span><br/><br/><br/>
                     </p>
                     <p className="App-text">
-                    <span class="App-text-small">*Lunch Provided:</span> We cannot accommodate special dietary needs. If you need special food, we recommend you pack your own lunch.
-                    Water and fresh fruit will be available.
+                    <span class="App-text-small">{this.state.text[39]}</span> {this.state.text[40]}
                     </p>
                 </div>
             </div>
-
         )
     }
 }
