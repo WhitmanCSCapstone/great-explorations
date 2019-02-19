@@ -20,7 +20,7 @@ class ReadSheetTest extends React.Component {
           <div>
             <br />
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdanU5zmNOIIvhtWTqJlRUfSdb8pjrp7nFabyqa71w91Yu4Yg/viewform?embedded=true"
-             width="640" height="4370" frameborder="0" marginheight="0" marginwidth="0" title="Embedded Registration Form">
+             width="640" height="4590" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style={{overflow:"hidden"}} title="Embedded Registration Form">
               Loading...
             </iframe>
           </div>
