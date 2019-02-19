@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'antd';
 import './../App.css';
+import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
+import brochureEn from './../brochures/GE2019En.pdf';
+import brochureEs from './../brochures/GE2019Es.pdf';
 
 class About extends Component {
+
+    state = {
+        text: []
+    }
+
+    componentDidMount() {
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
+        this.updateText();
+    }
+
+    updateText() {
+        this.setState({ text: WEBTEXT });
+    }
 
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
+                    <p className="App-text">
+                        <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
+<a target="_blank" href={brochureEn}>English Brochure Download</a>
+{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
+<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+</center>
+                    </p>
                     <p className="App-header-text">
-                        Conference Goals
+                      {this.state.text[17]}
                     </p>
                     <p className="App-text">
-                    To provide 5th through 8th grade girls with an informal, hands-on experience
-                    with careers that utilize science, technology, engineering and math. To provide
-                    an opportunity to meet and form personal contacts with women in these exciting
-                    careers.<br/><br/>
-
-                    GE is a super fun Saturday of science, math, engineering, art, and technology for
-                    5th-8th grade girls, put on by women STEM professionals.<br/><br/>
-
-                    Walla Walla Great Explorations is a STEM (Science, Technology, Engineering, and
-                    Math, plus Arts) event held at Whitman College.  Every other year on the first
-                    Saturday of Whitman College’s spring break, 450 5th-8th grade girls attend three
-                    workshops and a keynote talk.  The event is all female, from the attendees to the
-                    workshop presenters to the keynote and volunteers.  Organized by the non-profit
-                    Great Explorations in Education and supported by AAUW (the American Association
-                    of University Women), girls are introduced to women role models in STEM careers
-                    by participating in hands-on workshops.  Our goal is to encourage greater
-                    participation in the science and math education in their middle and high school
-                    years that will open the door to opportunities they might have otherwise been
-                    unaware of or lacking the enthusiasm and confidence to pursue.  <br/><br/>
-
-                    This event was first held in 1984, and was called Expanding Your Horizons. That
-                    first year about 50 girls were welcomed to Whitman College. <br/><br/>
-
-
+                    {this.state.text[18]}<br/><br/>
+                    {this.state.text[19]}<br/><br/>
+                    {this.state.text[20]}<br/><br/>
+                    {this.state.text[21]}<br/><br/>
                     </p>
                 </div>
 

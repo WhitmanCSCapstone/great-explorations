@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
 import './../App.css';
+import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 
 class Contact extends Component {
+
+    state = {
+        text: []
+    }
+
+    componentDidMount() {
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
+        this.updateText();
+    }
+
+    updateText() {
+        this.setState({ text: WEBTEXT });
+    }
 
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                     <p className="App-header-text">
-                        Contact Us
+                        {this.state.text[108]}
                     </p>
                     <p className="App-text-subheader">
-                        Need to get in touch? Here's how to do it.<br></br><br></br>
+                        {this.state.text[109]}<br></br><br></br>
                         <ul className="App-text">
-                            <li> Call: Carol Morgan (509) 520-9977 </li>
-                            <li> Email: gewallawalla@gmail.com </li>
-                            <li> Mail: Great Explorations, c/o Carol Morgan 1765 Gray Lynn Dr, Walla Walla, WA 99362 </li>
+                            <li>{this.state.text[110]}</li>
+                            <li>{this.state.text[111]}</li>
+                            <li>{this.state.text[112]}</li>
                         </ul>
                     </p>
                 </div>

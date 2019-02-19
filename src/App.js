@@ -1,14 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Layout, Menu, Checkbox } from 'antd';
+import { SHEET_INFO, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
 import { Link } from 'react-router';
-import { Layout, Menu} from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
 
     state = {
-        current: this.props.location.pathname,
+        current: "registration",
+        text: []
+    }
+
+    componentDidMount() {
+        window.gapi.load("client", this.initClient);
+        WEBTEXT_ADD_CALLBACK(this.updateText.bind(this));
+    }
+
+    initClient = () => {
+        window.gapi.client
+            .init({
+                apiKey: SHEET_INFO.apiKey,
+                discoveryDocs: SHEET_INFO.discoveryDocs
+            })
+            .then(() => {
+                WEBTEXT_LOAD();
+            },
+            () => {
+                console.log("Error initializing Google API!");
+        });
+    }
+
+    langSwitch = () => {
+        SWITCH_LANGUAGE();
+        WEBTEXT_LOAD();
+    }
+
+    updateText() {
+        this.setState({ text: WEBTEXT });
     }
 
     handleClick = (e) => {
@@ -29,46 +59,47 @@ class App extends Component {
                         style={{ lineHeight: '64px' }}
                         onClick={this.handleClick}
                     >
-                        <Menu.Item key={"/about"}>
+                        <Menu.Item key={"about"}>
                              <Link to={"/about"}>
-                               {"About"}
+{this.state.text[2]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/schedule"}>
+                        <Menu.Item key={"schedule"}>
                              <Link to={"/schedule"}>
-                               {"Schedule"}
+{this.state.text[3]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/"}>
+                        <Menu.Item key={"registration"}>
                              <Link to={"/registration"}>
-                               {"Registration"}
+{this.state.text[4]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/payment"}>
+                        <Menu.Item key={"payment"}>
                              <Link to={"/payment"}>
-                               {"Payment"}
+{this.state.text[5]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/sponsors"}>
+                        <Menu.Item key={"sponsors"}>
                              <Link to={"/sponsors"}>
-                               {"Sponsors"}
+{this.state.text[6]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/keynote"}>
+                        <Menu.Item key={"keynote"}>
                              <Link to={"/keynote"}>
-                               {"Keynote"}
+{this.state.text[7]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"/faq"}>
+                        <Menu.Item key={"faq"}>
                              <Link to={"/faq"}>
-                               {"FAQs"}
+{this.state.text[8]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"/contact"}>
                              <Link to={"/contact"}>
-                               {"Contact Us"}
+{this.state.text[9]}
                              </Link>
                            </Menu.Item>
+                        {/*<Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>*/}
                     </Menu>
                 </Header>
 
@@ -76,7 +107,7 @@ class App extends Component {
                   {this.props.children}
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Whitman College Copyright ©2019 Melissa Kohl, Kirk Lange, and Jack Stewart
+{this.state.text[1]}
                 </Footer>
             </Layout>
         );
