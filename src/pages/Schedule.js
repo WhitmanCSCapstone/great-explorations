@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
+import brochureEn from './../brochures/GE2019En.pdf';
+import brochureEs from './../brochures/GE2019Es.pdf';
 
 class Schedule extends Component {
 
@@ -21,11 +23,19 @@ class Schedule extends Component {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
+                <p className="App-text">
+                    <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
+<a target="_blank" href={brochureEn}>English Brochure Download</a>
+{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
+<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+</center>
+                </p>
                   <p className="App-header-text">
                     {this.state.text[22]}
                     <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[23]}</center>
                     <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[24]}</center>
                     </p>
+
                     <p className="App-text">
                     {this.state.text[25]} <span class="schedule">{this.state.text[26]}</span><br/>
                     {this.state.text[27]}<span class="schedule">{this.state.text[28]}</span><br/>
