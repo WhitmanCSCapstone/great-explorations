@@ -5,6 +5,8 @@ import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
 import ImageScroll from './../components/ImageScroll.js';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
+import brochureEn from './../brochures/GE2019En.pdf';
+import brochureEs from './../brochures/GE2019Es.pdf';
 
 class Registration extends Component {
 
@@ -25,14 +27,22 @@ class Registration extends Component {
       window.location.replace("/#/payment");
       message.success(this.state.text[116], 10);
     };
-    
+
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
+                <p className="App-text">
+                    <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
+<a target="_blank" href={brochureEn}>English Brochure Download</a>
+{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
+<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+</center>
+                </p>
                     <p className="App-header-text">
                         <ImageScroll />
                     </p>
+
                     <p className="App-header-text">
                         {this.state.text[10]}<br></br>
                         <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[11]}</center>
@@ -53,14 +63,14 @@ class Registration extends Component {
                     </i></p>
                     <p align="right">
                         <Affix offsetTop={200}>
-                            <Button type="primary" 
+                            <Button type="primary"
                                 onClick={() => {
                                   window.location.hash = "#registration";
                                 }}>{this.state.text[113]}
                             </Button>
                         </Affix> <br></br>
                         <Affix offsetTop={255}>
-                            <Button type="danger" 
+                            <Button type="danger"
                                 onClick={() => {
                                   window.location.hash = "#registration";
                                 }}>{this.state.text[114]}
