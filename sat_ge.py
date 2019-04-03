@@ -20,7 +20,7 @@ def cnf_var_freq(cnf):
             freq[var] += 1
     return freq
 
-def cnf_from_bipartite(gprefs, wcaps, gcap):
+def bipartite_solve(wcaps, gprefs):
     # Translate raw numbers to cnf variable numbers
     gtow = { g: [(len(wcaps)*(g-1))+w for w in ws] \
                 for g, ws in gprefs.items() }
@@ -33,11 +33,11 @@ def cnf_from_bipartite(gprefs, wcaps, gcap):
     # Build the cnf
     cnf = []
     for _, ws in gtow.items():
-        cnf.extend(combinations(ws, len(ws)-gcap+1))
+        cnf.extend(combinations(ws, len(ws)))
     for w, gs in wtog.items():
         cnf.extend(combinations(gs, len(gs)-wcaps[w-1]+1))
     for _, ws in ngtow.items():
-        cnf.extend(combinations(ws, gcap+1))
+        cnf.extend(combinations(ws, 2))
     for w, gs in nwtog.items():
         cnf.extend(combinations(gs, wcaps[w-1]+1))
     # Convert tuples to lists
@@ -47,16 +47,35 @@ def cnf_from_bipartite(gprefs, wcaps, gcap):
     for var in range(1, len(wcaps)*len(gprefs)):
         if freq[var] == 0:
             cnf.append([-var])
-    # Done!
-    return cnf
+    # Use PycoSAT to solve, then untranslate cnf variable numbers
+    sols = []
+    for satsol in itersolve(cnf):
+        sol = defaultdict(lambda: 0, dict())
+        for i in range(len(satsol)):
+            if (satsol[i] > 0):
+                g = i//len(wcaps)
+                sol[g+1] = satsol[i] - (g*len(wcaps))
+        sols.append(dict(sol))
+    return sols
 
 def main():
-    cnf = cnf_from_bipartite( \
-            {1: [1, 2, 3], 2: [1, 3, 5], 3: [4, 5, 6]}, \
-            [1, 1, 1, 1, 1, 1], \
-            2 )
-    for sol in itersolve(cnf):
-        print(sol)
+    print("3w, 3g, 2p")
+    sols = bipartite_solve([1, 1, 1], \
+            { 1: [1, 2], \
+              2: [1, 3], \
+              3: [2, 3] })
+    for sol in sols: print(sol)
+    print("4w, 8g, 2p")
+    sols = bipartite_solve([2, 2, 2, 2], \
+            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
+              5: [2, 3], 6: [2, 4], 7: [3, 4], 8: [2, 4] })
+    for sol in sols: print(sol)
+    print("4w, 8g, 2p; but with diff capacities")
+    sols = bipartite_solve([1, 3, 1, 3], \
+            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
+              5: [2, 3], 6: [2, 4], 7: [3, 4], 8: [2, 4] })
+    for sol in sols: print(sol)
+
 
 if __name__ == '__main__':
     main()
