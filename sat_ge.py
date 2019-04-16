@@ -49,14 +49,47 @@ def cnf_var_freq(cnf):
             freq[var] += 1
     return freq
 
-def bipartite_solve(sessions, wcaps, gprefs):
-    wcount = len(wcaps)
-    gcount = len(gprefs)
-    # Expand gprefs and wcaps to account for each session, if sessions>1
-    for s in range(sessions-1):
-        s = wcount*(s+1)
-        wcaps.extend(wcaps)
-        for g, ws in gprefs.items():
+def solution_is_valid(sessions, wcaps, solution):
+    countwcaps = [list(wcaps) for _ in range(sessions)]
+    for s in range(sessions):
+        for g, ws in solution.items():
+            countwcaps[s][ws[s]-1] -= 1
+    for s in countwcaps:
+        for w in s:
+            if w != 0:
+                return False
+    return True
+
+def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
+    print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+str(len(gprefs))+ \
+            "g, "+str(len(gprefs[1]))+"p --- gprefs:", gprefs)
+    no_solution = True
+    all_valid = True
+    sol_count = 0
+    for sol in bipartite_solve(sessions, wcaps, gprefs):
+        sol_count += 1
+        no_solution = False
+        if not solution_is_valid(sessions, wcaps, sol):
+            all_valid = False
+            print(">>>", sol)
+        elif sol_print:
+            print("   ", sol)
+    if no_solution:
+        print("[?] The solver produced no solutions.")
+    elif all_valid:
+        print("[.] All solutions are valid. Count:", sol_count)
+    print()
+
+def bipartite_solve(sessions, wcaps_param, gprefs_param):
+    wcaps = []
+    gprefs = defaultdict(lambda: [], dict())
+    wcount = len(wcaps_param)
+    gcount = len(gprefs_param)
+    # Expand gprefs and wcaps to account for each session
+    for s in range(sessions):
+        s = wcount*s
+        wcaps.extend(wcaps_param)
+        for g, ws in gprefs_param.items():
             gprefs[g].extend([s+w for w in ws])
     # Translate raw numbers to cnf variable numbers
     gtow = { g: [(gcount*(w-1))+g for w in ws] \
@@ -99,49 +132,49 @@ def bipartite_solve(sessions, wcaps, gprefs):
     return sols
 
 def main():
-    print("1s, 3w, 3g, 2p")
-    sols = bipartite_solve(1, [1, 1, 1], \
+    bipartite_test_print(1, [1,1,1], \
             { 1: [1, 2], \
               2: [1, 3], \
               3: [2, 3] })
-    for sol in sols: print(sol)
 
-    print("2s, 3w, 3g, 2p")
-    sols = bipartite_solve(2, [1, 1, 1], \
+    bipartite_test_print(1, [2, 2, 2, 2], \
+            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
+              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
+
+    bipartite_test_print(1, [1, 3, 1, 3], \
+            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
+              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
+
+    bipartite_test_print(2, [1, 1, 1], \
             { 1: [1, 2], \
               2: [1, 3], \
               3: [2, 3] })
-    for sol in sols: print(sol)
 
-    print("2s, 3w, 6g, 2p")
-    sols = bipartite_solve(2, [2, 2, 2], \
+    bipartite_test_print(2, [2, 2, 2], \
             { 1: [1, 2], 2: [1, 3], 3: [2, 3], \
               4: [1, 2], 5: [1, 3], 6: [2, 3] })
-    for sol in sols: print(sol)
 
-    print("3s, 3w, 6g, 3p; BUG!!! WHY NO SOLUTION?!")
-    sols = bipartite_solve(3, [2, 2, 2], \
+    bipartite_test_print(3, [1, 1, 1], \
+            { 1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3] })
+
+    bipartite_test_print(3, [2, 2, 2], \
             { 1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3], \
-              4: [1, 2, 3], 5: [1, 2, 3], 6: [1, 2, 3] })
-    for sol in sols: print(sol)
+              4: [1, 2, 3], 5: [1, 2, 3], 6: [1, 2, 3] }, False)
 
-    print("3s, 4w, 8g, 4p; BUG!!! WHY NO SOLUTION?!")
-    sols = bipartite_solve(3, [2, 2, 2, 2], \
-            { 1: [1, 2, 3, 4], 2: [1, 2, 3, 4], 3: [1, 2, 3, 4], 4: [1, 2, 3, 4], \
-              5: [1, 2, 3, 4], 6: [1, 2, 3, 4], 7: [1, 2, 3, 4], 8: [1, 2, 3, 4] })
-    for sol in sols: print(sol)
-    '''
-    print("1s, 4w, 8g, 2p")
-    sols = bipartite_solve(1, [2, 2, 2, 2], \
-            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
-              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
-    for sol in sols: print(sol)
-    print("1s, 4w, 8g, 2p; but with diff capacities")
-    sols = bipartite_solve(1, [1, 3, 1, 3], \
-            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
-              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
-    for sol in sols: print(sol)
-    '''
+    bipartite_test_print(3, [2, 2, 2, 2], \
+            { 1: [1, 2, 3], 2: [1, 2, 4], 3: [1, 3, 4], 4: [2, 3, 4], \
+              5: [1, 2, 3], 6: [1, 2, 4], 7: [1, 3, 4], 8: [2, 3, 4] }, False)
+
+    bipartite_test_print(4, [1, 1, 1, 1, 1], \
+            { 1: [1, 2, 3, 4], 2: [1, 2, 3, 5], 3: [1, 2, 4, 5], \
+              4: [1, 3, 4, 5], 5: [2, 3, 4, 5] }, False)
+
+    prefs = defaultdict(lambda: [], dict())
+    combo = [[n for n in c] for c in combinations([1, 2, 3, 4], 3)]
+    for i in range(12):
+        prefs[i+1] = combo[i%4]
+    prefs = dict(prefs)
+    bipartite_test_print(3, [3, 3, 3, 3], prefs, False)
 
 if __name__ == '__main__':
     main()
