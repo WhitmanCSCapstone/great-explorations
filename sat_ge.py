@@ -1,5 +1,7 @@
 from itertools import combinations
 from collections import defaultdict
+from time import time
+import math
 import operator
 import pycosat
 
@@ -51,16 +53,22 @@ def cnf_var_freq(cnf):
 
 def solution_is_valid(sessions, wcaps, solution):
     countwcaps = [list(wcaps) for _ in range(sessions)]
+    totalseats = 0
+    for w in wcaps:
+        totalseats += w
+    fillratio = len(solution)/totalseats
     for s in range(sessions):
         for g, ws in solution.items():
             countwcaps[s][ws[s]-1] -= 1
     for s in countwcaps:
-        for w in s:
-            if w != 0:
+        for i in range(len(s)):
+            # If underfilled, it's invalid
+            if wcaps[i] - s[i] < math.floor(wcaps[i]*fillratio):
                 return False
     return True
 
 def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
+    begin = time()
     print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+str(len(gprefs))+ \
             "g, "+str(len(gprefs[1]))+"p --- gprefs:", gprefs)
     no_solution = True
@@ -78,6 +86,7 @@ def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
         print("[?] The solver produced no solutions.")
     elif all_valid:
         print("[.] All solutions are valid. Count:", sol_count)
+    print("Runtime: "+str(time()-begin)+"s")
     print()
 
 def bipartite_solve(sessions, wcaps_param, gprefs_param):
@@ -85,6 +94,10 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
     gprefs = defaultdict(lambda: [], dict())
     wcount = len(wcaps_param)
     gcount = len(gprefs_param)
+    totalseats = 0
+    for w in wcaps_param:
+        totalseats += w
+    fillratio = len(gprefs_param)/totalseats
     # Expand gprefs and wcaps to account for each session
     for s in range(sessions):
         s = wcount*s
@@ -99,7 +112,9 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
                 for w, gs in bipartite_flip(gprefs).items() }
     # Build the cnf
     cnf = cnf_combo(gtow, sessions) + \
-          cnf_combo(wtog, wcaps)
+          cnf_combo(wtog, [math.floor(w*fillratio) for w in wcaps],
+                  operator.ge) + \
+          cnf_combo(wtog, wcaps, operator.le)
     # Exactly one workshop (eows) per person per timeslot, and
     # No same workshop (nsws) multiple times in diff timeslots
     for g, ws in gtow.items():
@@ -132,10 +147,13 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
     return sols
 
 def main():
-    bipartite_test_print(1, [1,1,1], \
-            { 1: [1, 2], \
-              2: [1, 3], \
-              3: [2, 3] })
+    bipartite_test_print(1, [1, 1, 1], \
+            { 1: [1, 2], 2: [1, 3], 3: [2, 3] })
+
+    bipartite_test_print(1, [40, 30, 50], \
+            { 1: [1, 2], 2: [1, 2], 3: [1, 2], \
+              4: [2, 3], 5: [2, 3], 6: [2, 3], \
+              7: [2, 3], 8: [2, 3], 9: [2, 3] })
 
     bipartite_test_print(1, [2, 2, 2, 2], \
             { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
@@ -169,6 +187,8 @@ def main():
             { 1: [1, 2, 3, 4], 2: [1, 2, 3, 5], 3: [1, 2, 4, 5], \
               4: [1, 3, 4, 5], 5: [2, 3, 4, 5] }, False)
 
+    return None
+    # Below takes basically forever
     prefs = defaultdict(lambda: [], dict())
     combo = [[n for n in c] for c in combinations([1, 2, 3, 4], 3)]
     for i in range(12):
