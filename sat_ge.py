@@ -4,6 +4,7 @@ from time import time
 import math
 import operator
 import pycosat
+import random
 
 def bipartite_flip(d):
     fd = defaultdict(lambda: [], dict())
@@ -67,15 +68,25 @@ def solution_is_valid(sessions, wcaps, solution):
                 return False
     return True
 
+def bipartite_random_prefs(wcount, gcount, pcount):
+    gprefs = defaultdict(lambda: [], dict())
+    for g in range(gcount):
+        ws = [w+1 for w in range(wcount)]
+        for p in range(pcount):
+            w = random.choice(ws)
+            gprefs[g+1].append(w)
+            ws.remove(w)
+    return dict(gprefs)
+
 def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
-    begin = time()
     print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+str(len(gprefs))+ \
             "g, "+str(len(gprefs[1]))+"p --- gprefs:", gprefs)
+    totrun = satrun = time()
+    sols = bipartite_solve(sessions, wcaps, gprefs)
+    satrun = time() - satrun
     no_solution = True
     all_valid = True
-    sol_count = 0
-    for sol in bipartite_solve(sessions, wcaps, gprefs):
-        sol_count += 1
+    for sol in sols:
         no_solution = False
         if not solution_is_valid(sessions, wcaps, sol):
             all_valid = False
@@ -85,31 +96,64 @@ def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
     if no_solution:
         print("[?] The solver produced no solutions.")
     elif all_valid:
-        print("[.] All solutions are valid. Count:", sol_count)
-    print("Runtime: "+str(time()-begin)+"s")
+        print("[.] All solutions are valid. Count:", len(sols))
+    print("SAT Runtime:    "+str(satrun)+"s")
+    print("Total Runtime:  "+str(time() - totrun)+"s")
     print()
 
 def bipartite_solve(sessions, wcaps_param, gprefs_param):
     wcaps = []
-    gprefs = defaultdict(lambda: [], dict())
     wcount = len(wcaps_param)
     gcount = len(gprefs_param)
     totalseats = 0
     for w in wcaps_param:
         totalseats += w
     fillratio = len(gprefs_param)/totalseats
-    # Expand gprefs and wcaps to account for each session
-    for s in range(sessions):
-        s = wcount*s
-        wcaps.extend(wcaps_param)
-        for g, ws in gprefs_param.items():
-            gprefs[g].extend([s+w for w in ws])
-    # Translate raw numbers to cnf variable numbers
-    gtow = { g: [(gcount*(w-1))+g for w in ws] \
-                for g, ws in gprefs.items() }
-    # Create flipped bipartite and translate numbers similar to above
-    wtog = { w: [(gcount*(w-1))+g for g in gs] \
-                for w, gs in bipartite_flip(gprefs).items() }
+    # Until each workshop has enough prefs pointing to it
+    gprefs = {}
+    gtow = {}
+    wtog = {}
+    enoughprefs = False
+    fudgefactor = 0
+    while not enoughprefs:
+        # Expand gprefs and wcaps to account for each session
+        gprefs = defaultdict(lambda: [], dict())
+        for s in range(sessions):
+            s = wcount*s
+            wcaps.extend(wcaps_param)
+            for g, ws in gprefs_param.items():
+                gprefs[g].extend([s+w for w in ws])
+        # Translate raw numbers to cnf variable numbers
+        gtow = { g: [(gcount*(w-1))+g for w in ws] \
+                    for g, ws in gprefs.items() }
+        # Create flipped bipartite and translate numbers similar to above
+        wtog = { w: [(gcount*(w-1))+g for g in gs] \
+                    for w, gs in bipartite_flip(gprefs).items() }
+        # In case there's a ws that nobody prefd
+        for w in range(len(wcaps_param)):
+            if w+1 not in wtog:
+                wtog[w+1] = []
+        # Get ratios of prefd-to-capacity
+        prefratios = defaultdict(lambda: 0, dict())
+        for k, vs in wtog.items():
+            prefratios[k] = len(vs)/wcaps[k-1]
+        # Check for under-prefd ws
+        enoughprefs = True
+        for w, gs in wtog.items():
+            if len(gs) < math.floor(wcaps[w-1]*fillratio)*sessions:
+                enoughprefs = False
+                fudgefactor += 1
+                # Steal preferences from the most popular (highest prefratio)
+                wmax = max(prefratios, key=prefratios.get)
+                gran = -1
+                while gran == -1 or w in gprefs_param[gran]:
+                    gran = random.choice([g-(gcount*(wmax-1)) for g in wtog[wmax]])
+                gprefs_param[gran].remove(wmax)
+                gprefs_param[gran].append(w)
+                break
+    if fudgefactor > 0:
+        print(">>> Had to fudge", fudgefactor, "girl's preferences to "
+                "guarantee the existence of a solution.")
     # Build the cnf
     cnf = cnf_combo(gtow, sessions) + \
           cnf_combo(wtog, [math.floor(w*fillratio) for w in wcaps],
@@ -150,42 +194,33 @@ def main():
     bipartite_test_print(1, [1, 1, 1], \
             { 1: [1, 2], 2: [1, 3], 3: [2, 3] })
 
-    bipartite_test_print(1, [40, 30, 50], \
-            { 1: [1, 2], 2: [1, 2], 3: [1, 2], \
-              4: [2, 3], 5: [2, 3], 6: [2, 3], \
-              7: [2, 3], 8: [2, 3], 9: [2, 3] })
-
-    bipartite_test_print(1, [2, 2, 2, 2], \
-            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
-              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
-
-    bipartite_test_print(1, [1, 3, 1, 3], \
-            { 1: [1, 3], 2: [1, 2], 3: [2, 3], 4: [2, 4], \
-              5: [2, 3], 6: [1, 4], 7: [3, 4], 8: [1, 4] })
-
     bipartite_test_print(2, [1, 1, 1], \
-            { 1: [1, 2], \
-              2: [1, 3], \
-              3: [2, 3] })
-
-    bipartite_test_print(2, [2, 2, 2], \
-            { 1: [1, 2], 2: [1, 3], 3: [2, 3], \
-              4: [1, 2], 5: [1, 3], 6: [2, 3] })
+            { 1: [1, 2], 2: [1, 3], 3: [2, 3] })
 
     bipartite_test_print(3, [1, 1, 1], \
             { 1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3] })
 
-    bipartite_test_print(3, [2, 2, 2], \
-            { 1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3], \
-              4: [1, 2, 3], 5: [1, 2, 3], 6: [1, 2, 3] }, False)
+    # This should result in the fudging of three girl's preferences
+    bipartite_test_print(1, [4, 3, 5], \
+            { 1: [2, 3], 2: [2, 3], 3: [2, 3], \
+              4: [2, 3], 5: [2, 3], 6: [2, 3], \
+              7: [2, 3], 8: [2, 3], 9: [2, 3] })
 
-    bipartite_test_print(3, [2, 2, 2, 2], \
-            { 1: [1, 2, 3], 2: [1, 2, 4], 3: [1, 3, 4], 4: [2, 3, 4], \
-              5: [1, 2, 3], 6: [1, 2, 4], 7: [1, 3, 4], 8: [2, 3, 4] }, False)
+    for i in range(5):
+        bipartite_test_print(1, [3, 3, 3], \
+                bipartite_random_prefs(3, 9, 2), False)
 
-    bipartite_test_print(4, [1, 1, 1, 1, 1], \
-            { 1: [1, 2, 3, 4], 2: [1, 2, 3, 5], 3: [1, 2, 4, 5], \
-              4: [1, 3, 4, 5], 5: [2, 3, 4, 5] }, False)
+    for i in range(5):
+        bipartite_test_print(2, [2, 2, 2, 2], \
+                bipartite_random_prefs(4, 8, 3), False)
+
+    for i in range(5):
+        bipartite_test_print(3, [2, 2, 2, 2], \
+                bipartite_random_prefs(4, 8, 3), False)
+
+    for i in range(5):
+        bipartite_test_print(4, [1, 1, 1, 1, 1], \
+                bipartite_random_prefs(5, 5, 4), False)
 
     return None
     # Below takes basically forever
