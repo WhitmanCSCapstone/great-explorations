@@ -1,3 +1,3 @@
 # SAT Solver for Great Explorations
 
-Documentation and analysis goes here.
+Documentation and analysis go here.
