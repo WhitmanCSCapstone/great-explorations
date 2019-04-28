@@ -52,4 +52,6 @@ The Google Apps Script (GAS) related code can be viewed [here](https://docs.goog
 
 # Changing images
 
-All the images used on the website are in the src/grex_images/ folder. To change images, replace images in the folder with images of the same name, then deploy.
+All the images used on the website are in the src/grex_images/ folder. There are 2 ways to change images. 
+1. Replace images in the folder with images of the same name, then deploy. This changes the images everywhere.
+2. Switch to gh-pages branch and replace images there. This doesn't require deployment, but the images won't be changed in the master branch.
