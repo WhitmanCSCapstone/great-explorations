@@ -49,3 +49,7 @@ After deploying, go to GitHub and make sure custom domain is still set to gewall
 # Google Apps Script
 
 The Google Apps Script (GAS) related code can be viewed [here](https://docs.google.com/spreadsheets/d/1h-UJlgXtuydbPonqGLyPRx3FG8hp9XANk_TxjoQ46uw/edit?usp=sharing) alongside the workshop description spreadsheet.
+
+# Changing images
+
+All the images used on the website are in the src/grex_images/ folder. To change images, replace images in the folder with images of the same name, then deploy.
