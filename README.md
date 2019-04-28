@@ -55,3 +55,7 @@ The Google Apps Script (GAS) related code can be viewed [here](https://docs.goog
 All the images used on the website are in the src/grex_images/ folder. There are 2 ways to change images. 
 1. Replace images in the folder with images of the same name, then deploy. This changes the images everywhere.
 2. Switch to gh-pages branch and replace images there. This doesn't require deployment, but the images won't be changed in the master branch.
+
+# Algorithm
+
+The algorithm is written within Google Sheets. It can be accessed from the Great Exploration Registration Responses Google Sheet. Click on the the "Tools" tab and select "Script editor" to access the code.
