@@ -13,6 +13,18 @@ cd great-explorations
 sudo npm install
 ```
 
+# Run Locally
+
+Make sure yarn or npm is installed on your system.
+
+```
+yarn start
+```
+or
+```
+npm start
+```
+
 # Deployment
 
 First time deployment.
