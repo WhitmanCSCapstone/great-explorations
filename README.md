@@ -59,3 +59,5 @@ All the images used on the website are in the src/grex_images/ folder. There are
 # Algorithm
 
 The algorithm is written within Google Sheets. It can be accessed from the Great Exploration Registration Responses Google Sheet. Click on the the "Tools" tab and select "Script editor" to access the code.
+
+To run algorithm, click on the "Great Explorations" tab and select "Match Girls to Workshops." The matches will go into the Final Workshop Matches Google Sheet.
