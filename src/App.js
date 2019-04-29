@@ -99,7 +99,7 @@ class App extends Component {
 {this.state.text[9]}
                              </Link>
                            </Menu.Item>
-                        {/*<Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>*/}
+                        {<Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>}
                     </Menu>
                 </Header>
 
