@@ -80,8 +80,8 @@ def bipartite_random_prefs(wcount, gcount, pcount):
 
 def bipartite_test_print(sessions, wcaps, gprefs, verbose=True):
     if verbose:
-        print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+ \
-                str(len(gprefs))+"g, "+str(len(gprefs[1]))+"p ---")
+        print("--- "+str(sessions)+"s, "+str(len(wcaps)).zfill(2)+"w, "+ \
+                str(len(gprefs)).zfill(3)+"g, "+ str(len(gprefs[1]))+"p ---")
         print("gprefs:", gprefs, "\nwcaps:", wcaps)
     totrun = time()
     satrun = time()
@@ -113,7 +113,8 @@ def bipartite_test_print_random(sessions, wcount, gcount, pcount, n, verbose=Fal
         total += bipartite_test_print(sessions, \
                 [math.ceil(gcount/wcount) for w in range(wcount)], \
                 bipartite_random_prefs(wcount, gcount, pcount), verbose)
-    print(str(sessions)+"s, "+str(wcount)+"w, "+str(gcount)+"g, "+ \
+    print(str(sessions)+"s, "+str(wcount).zfill(2)+"w, "+ \
+            str(gcount).zfill(3)+"g, "+ \
             str(pcount)+"p --- Average runtime: "+ \
             str(round((total/n)*1000))+"ms")
 
@@ -238,7 +239,7 @@ def main():
     # Average runtime taken from n samples
     n = 10
 
-    # Varying only one at a time
+    # Vary only one at a time
     if False:
         # wcount
         bipartite_test_print_random(3, 3, 3, 3, n)
@@ -257,12 +258,15 @@ def main():
         bipartite_test_print_random(3, 3, 18, 3, n)
         bipartite_test_print_random(3, 3, 21, 3, n)
 
-    # Varying the wcount:gcount ratio
-    # wcount=[1,31); gcount=wcount*[1,8)
+    # g:w ratio
     for r in range(1, 8):
-        for w in range(3, 31):
-            bipartite_test_print_random(3, w, w*r, 3, n)
-        print("----------------------------------------")
+        print("################################################ R="+str(r))
+        # pcount
+        for p in range(3,7):
+            # wcount
+            for w in range(6, 16):
+                bipartite_test_print_random(3, w, w*r, p, n)
+            print("------------------------------------------------")
 
 if __name__ == '__main__':
     main()
