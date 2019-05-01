@@ -78,11 +78,14 @@ def bipartite_random_prefs(wcount, gcount, pcount):
             ws.remove(w)
     return dict(gprefs)
 
-def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
-    print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+str(len(gprefs))+ \
-            "g, "+str(len(gprefs[1]))+"p --- gprefs:", gprefs)
-    totrun = satrun = time()
-    sols = bipartite_solve(sessions, wcaps, gprefs)
+def bipartite_test_print(sessions, wcaps, gprefs, verbose=True):
+    if verbose:
+        print("--- "+str(sessions)+"s, "+str(len(wcaps))+"w, "+ \
+                str(len(gprefs))+"g, "+str(len(gprefs[1]))+"p ---")
+        print("gprefs:", gprefs, "\nwcaps:", wcaps)
+    totrun = time()
+    satrun = time()
+    sols = bipartite_solve(sessions, wcaps, gprefs, verbose)
     satrun = time() - satrun
     no_solution = True
     all_valid = True
@@ -91,17 +94,30 @@ def bipartite_test_print(sessions, wcaps, gprefs, sol_print=True):
         if not solution_is_valid(sessions, wcaps, sol):
             all_valid = False
             print(">>>", sol)
-        elif sol_print:
-            print("   ", sol)
-    if no_solution:
-        print("[?] The solver produced no solutions.")
-    elif all_valid:
-        print("[.] All solutions are valid. Count:", len(sols))
-    print("SAT Runtime:    "+str(satrun)+"s")
-    print("Total Runtime:  "+str(time() - totrun)+"s")
-    print()
+        elif verbose:
+            print("solution:", sol)
+    if verbose:
+        if no_solution:
+            print(">>> The solver produced no solutions.")
+        elif all_valid:
+            print("All proposed solutions are valid.")
+        print("SAT Runtime:            "+str(round(satrun*1000))+"ms")
+        #print("Total Runtime:  "+str(round((time()-totrun)*1000))+"ms")
+        print()
+    return satrun
 
-def bipartite_solve(sessions, wcaps_param, gprefs_param):
+def bipartite_test_print_random(sessions, wcount, gcount, pcount, n, verbose=False):
+    # If rand workshop capacity randomness, add random.randint(0,2) for example
+    total = 0
+    for i in range(n):
+        total += bipartite_test_print(sessions, \
+                [math.ceil(gcount/wcount) for w in range(wcount)], \
+                bipartite_random_prefs(wcount, gcount, pcount), verbose)
+    print(str(sessions)+"s, "+str(wcount)+"w, "+str(gcount)+"g, "+ \
+            str(pcount)+"p --- Average runtime: "+ \
+            str(round((total/n)*1000))+"ms")
+
+def bipartite_solve(sessions, wcaps_param, gprefs_param, verbose=True):
     wcaps = []
     wcount = len(wcaps_param)
     gcount = len(gprefs_param)
@@ -151,8 +167,8 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
                 gprefs_param[gran].remove(wmax)
                 gprefs_param[gran].append(w)
                 break
-    if fudgefactor > 0:
-        print(">>> Had to fudge", fudgefactor, "girl's preferences to "
+    if fudgefactor > 0 and verbose:
+        print("Had to fudge", fudgefactor, "girl's preferences to "
                 "guarantee the existence of a solution.")
     # Build the cnf
     cnf = cnf_combo(gtow, sessions) + \
@@ -179,9 +195,14 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
         if freq[var] == 0:
             cnf.append([-var])
     # Use PycoSAT to solve, then untranslate cnf variable numbers
+    # `itersolve` returns array of all solutions, but may run MUCH slower
     sols = []
-    for satsol in pycosat.itersolve(cnf):
+    #for satsol in pycosat.itersolve(cnf):
+    for satsol in [pycosat.solve(cnf)]:
         sol = defaultdict(lambda: [], dict())
+        if satsol == "UNSAT":
+            print("UNSATISFIABLE")
+            break
         for i in range(len(satsol)):
             if (satsol[i] > 0):
                 g = (i%gcount)+1
@@ -191,6 +212,7 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param):
     return sols
 
 def main():
+    '''
     bipartite_test_print(1, [1, 1, 1], \
             { 1: [1, 2], 2: [1, 3], 3: [2, 3] })
 
@@ -206,30 +228,41 @@ def main():
               4: [2, 3], 5: [2, 3], 6: [2, 3], \
               7: [2, 3], 8: [2, 3], 9: [2, 3] })
 
-    for i in range(5):
-        bipartite_test_print(1, [3, 3, 3], \
-                bipartite_random_prefs(3, 9, 2), False)
+    for i in range(3):
+        bipartite_test_print_random(1, 3, 9, 3)
 
-    for i in range(5):
-        bipartite_test_print(2, [2, 2, 2, 2], \
-                bipartite_random_prefs(4, 8, 3), False)
+    for i in range(3):
+        bipartite_test_print_random(2, 4, 8, 3)
+    '''
 
-    for i in range(5):
-        bipartite_test_print(3, [2, 2, 2, 2], \
-                bipartite_random_prefs(4, 8, 3), False)
+    # Average runtime taken from n samples
+    n = 10
 
-    for i in range(5):
-        bipartite_test_print(4, [1, 1, 1, 1, 1], \
-                bipartite_random_prefs(5, 5, 4), False)
+    # Varying only one at a time
+    if False:
+        # wcount
+        bipartite_test_print_random(3, 3, 3, 3, n)
+        bipartite_test_print_random(3, 6, 3, 3, n)
+        bipartite_test_print_random(3, 9, 3, 3, n)
+        bipartite_test_print_random(3, 12, 3, 3, n)
+        bipartite_test_print_random(3, 15, 3, 3, n)
+        bipartite_test_print_random(3, 18, 3, 3, n)
+        bipartite_test_print_random(3, 21, 3, 3, n)
+        # gcount
+        bipartite_test_print_random(3, 3, 3, 3, n)
+        bipartite_test_print_random(3, 3, 6, 3, n)
+        bipartite_test_print_random(3, 3, 9, 3, n)
+        bipartite_test_print_random(3, 3, 12, 3, n)
+        bipartite_test_print_random(3, 3, 15, 3, n)
+        bipartite_test_print_random(3, 3, 18, 3, n)
+        bipartite_test_print_random(3, 3, 21, 3, n)
 
-    return None
-    # Below takes basically forever
-    prefs = defaultdict(lambda: [], dict())
-    combo = [[n for n in c] for c in combinations([1, 2, 3, 4], 3)]
-    for i in range(12):
-        prefs[i+1] = combo[i%4]
-    prefs = dict(prefs)
-    bipartite_test_print(3, [3, 3, 3, 3], prefs, False)
+    # Varying the wcount:gcount ratio
+    # wcount=[1,31); gcount=wcount*[1,8)
+    for r in range(1, 8):
+        for w in range(3, 31):
+            bipartite_test_print_random(3, w, w*r, 3, n)
+        print("----------------------------------------")
 
 if __name__ == '__main__':
     main()
