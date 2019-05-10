@@ -37,7 +37,7 @@ def cnf_combo(d, n, op=operator.eq):
             return None
         # Create cnf combos
         for k, vs in items:
-            # Combination size, i.e. workshop capacity
+            # Combination size... sometimes it's workshop capacity
             c = n[k-1] if isinstance(n, list) else n
             c = len(vs)-c if (op == operator.ge) else c
             cnf.extend(combinations(vs, c+1))
@@ -172,8 +172,8 @@ def bipartite_solve(sessions, wcaps_param, gprefs_param, verbose=True):
         print("Had to fudge", fudgefactor, "girl's preferences to "
                 "guarantee the existence of a solution.")
     # Build the cnf
-    cnf = cnf_combo(gtow, sessions) + \
-          cnf_combo(wtog, [math.floor(w*fillratio) for w in wcaps],
+    # No workshop overfilling or underfilling
+    cnf = cnf_combo(wtog, [math.floor(w*fillratio) for w in wcaps],
                   operator.ge) + \
           cnf_combo(wtog, wcaps, operator.le)
     # Exactly one workshop (eows) per person per timeslot, and
@@ -227,36 +227,11 @@ def main():
     bipartite_test_print(1, [4, 3, 5], \
             { 1: [2, 3], 2: [2, 3], 3: [2, 3], \
               4: [2, 3], 5: [2, 3], 6: [2, 3], \
-              7: [2, 3], 8: [2, 3], 9: [2, 3] })
-
-    for i in range(3):
-        bipartite_test_print_random(1, 3, 9, 3)
-
-    for i in range(3):
-        bipartite_test_print_random(2, 4, 8, 3)
+              7: [2, 3], 8: [2, 3], 9: [2, 3] }, True)
     '''
 
     # Average runtime taken from n samples
     n = 10
-
-    # Vary only one at a time
-    if False:
-        # wcount
-        bipartite_test_print_random(3, 3, 3, 3, n)
-        bipartite_test_print_random(3, 6, 3, 3, n)
-        bipartite_test_print_random(3, 9, 3, 3, n)
-        bipartite_test_print_random(3, 12, 3, 3, n)
-        bipartite_test_print_random(3, 15, 3, 3, n)
-        bipartite_test_print_random(3, 18, 3, 3, n)
-        bipartite_test_print_random(3, 21, 3, 3, n)
-        # gcount
-        bipartite_test_print_random(3, 3, 3, 3, n)
-        bipartite_test_print_random(3, 3, 6, 3, n)
-        bipartite_test_print_random(3, 3, 9, 3, n)
-        bipartite_test_print_random(3, 3, 12, 3, n)
-        bipartite_test_print_random(3, 3, 15, 3, n)
-        bipartite_test_print_random(3, 3, 18, 3, n)
-        bipartite_test_print_random(3, 3, 21, 3, n)
 
     # g:w ratio
     for r in range(1, 8):
