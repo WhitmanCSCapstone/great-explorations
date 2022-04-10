@@ -3,8 +3,8 @@ import './../App.css';
 import pic1 from './../grex_images/Liz_Pic.jpg';
 import pic2 from './../grex_images/auroraKeynote.jpg';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/GE2019En.pdf';
-import brochureEs from './../brochures/GE2019Es.pdf';
+import brochureEn from './../brochures/GE2022En.pdf';
+import brochureEs from './../brochures/GE2022Es.pdf';
 
 class Keynote extends Component {
 
