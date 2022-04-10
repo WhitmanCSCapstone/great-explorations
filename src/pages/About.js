@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/GE2019En.pdf';
-import brochureEs from './../brochures/GE2019Es.pdf';
+import brochureEn from './../brochures/GE2022En.pdf';
+import brochureEs from './../brochures/GE2022Es.pdf';
 
 class About extends Component {
 
