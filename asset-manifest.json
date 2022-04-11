@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.85e94740.chunk.css",
-    "main.js": "/static/js/main.3c8a18a6.chunk.js",
-    "main.js.map": "/static/js/main.3c8a18a6.chunk.js.map",
+    "main.js": "/static/js/main.fa6a26b4.chunk.js",
+    "main.js.map": "/static/js/main.fa6a26b4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.66acd19d.js",
     "runtime-main.js.map": "/static/js/runtime-main.66acd19d.js.map",
     "static/css/2.e0509c22.chunk.css": "/static/css/2.e0509c22.chunk.css",
@@ -20,7 +20,7 @@
     "static/media/IMG_5725.e84cf137.jpg": "/static/media/IMG_5725.e84cf137.jpg",
     "static/media/IMG_5733.d28104fd.jpg": "/static/media/IMG_5733.d28104fd.jpg",
     "static/media/IMG_5740.26317b9b.jpg": "/static/media/IMG_5740.26317b9b.jpg",
-    "static/media/Liz_Pic.6326702a.jpg": "/static/media/Liz_Pic.6326702a.jpg",
+    "static/media/Perron_Julie.98f21474.jpg": "/static/media/Perron_Julie.98f21474.jpg",
     "static/media/aurora.8b42bcb2.jpg": "/static/media/aurora.8b42bcb2.jpg",
     "static/media/auroraKeynote.379b3ab8.jpg": "/static/media/auroraKeynote.379b3ab8.jpg",
     "static/media/ImageScroll.css": "/static/media/slick.c94f7671.ttf"
@@ -30,6 +30,6 @@
     "static/css/2.e0509c22.chunk.css",
     "static/js/2.21798104.chunk.js",
     "static/css/main.85e94740.chunk.css",
-    "static/js/main.3c8a18a6.chunk.js"
+    "static/js/main.fa6a26b4.chunk.js"
   ]
 }
