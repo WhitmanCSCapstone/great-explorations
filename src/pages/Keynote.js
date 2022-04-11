@@ -33,23 +33,19 @@ class Keynote extends Component {
                 </center>
                 </p>
                     <p className="App-header-text">
-                        {this.state.text[75]}
+                        {this.state.text[76]}
                     </p>
 
                     <p className="App-header-text-2">
-                        <center>{this.state.text[76]}<br/>{this.state.text[77]}</center>
+                        <center>{this.state.text[77]}<br/>{this.state.text[78]}</center>
                     </p>
                     <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
                     <p className="App-text">
-                    <center><span class="picture">{this.state.text[78]}</span><br/><br/></center>
-                    {this.state.text[80]}<br/><br/>
-                    {this.state.text[81]}<br/><br/>
-                    {this.state.text[82]}<br/><br/>
-                    {this.state.text[83]}<br/><br/>
-                    {this.state.text[84]}
+                    {/*<center><span class="picture">{this.state.text[79]}</span><br/><br/></center>*/}
+                    {this.state.text[81]}
                     </p>
-                    <div><h3><img src={pic2} height="350px" alt="logo" /></h3></div>
-                    <p className="picture">{this.state.text[79]}</p>
+                    {/*<div><h3><img src={pic2} height="350px" alt="logo" /></h3></div>*/}
+                    {/*<p className="picture">{this.state.text[79]}</p>*/}
                 </div>
             </div>
 

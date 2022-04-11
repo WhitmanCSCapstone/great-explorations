@@ -31,15 +31,15 @@ class Contact extends Component {
 </center>
                 </p>
                     <p className="App-header-text">
-                        {this.state.text[108]}
+                        {this.state.text[110]}
                     </p>
 
                     <p className="App-text-subheader">
-                        {this.state.text[109]}<br></br><br></br>
+                        {this.state.text[111]}<br></br><br></br>
                         <ul className="App-text">
-                            <li>{this.state.text[110]}</li>
-                            <li>{this.state.text[111]}</li>
                             <li>{this.state.text[112]}</li>
+                            <li>{this.state.text[113]}</li>
+                            <li>{this.state.text[114]}</li>
                         </ul>
                     </p>
                 </div>

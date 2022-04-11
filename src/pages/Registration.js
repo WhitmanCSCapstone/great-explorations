@@ -24,8 +24,8 @@ class Registration extends Component {
     }
 
     success = () => {
-      window.location.replace("/#/payment");
-      message.success(this.state.text[116], 10);
+      window.location.replace("/#");
+      message.success(this.state.text[118], 10);
     };
 
     render() {
@@ -66,16 +66,17 @@ class Registration extends Component {
                             <Button type="primary"
                                 onClick={() => {
                                   window.location.hash = "#registration";
-                                }}>{this.state.text[113]}
-                            </Button>
-                        </Affix> <br></br>
-                        <Affix offsetTop={255}>
-                            <Button type="danger"
-                                onClick={() => {
-                                  window.location.hash = "#registration";
-                                }}>{this.state.text[114]}
+                                }}>{this.state.text[115]}
                             </Button>
                         </Affix>
+                        {/*<br></br>*/}
+                        {/*<Affix offsetTop={255}>*/}
+                        {/*    <Button type="danger"*/}
+                        {/*        onClick={() => {*/}
+                        {/*          window.location.hash = "#registration";*/}
+                        {/*        }}>{this.state.text[114]}*/}
+                        {/*    </Button>*/}
+                        {/*</Affix>*/}
                     </p>
                     {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
                     <p className="App-header-text" id="registration">
@@ -83,7 +84,7 @@ class Registration extends Component {
                     </p>
                     <p align="center">
                         <Button type="primary" onClick={this.success} ghost>
-                           {this.state.text[115]}
+                           {this.state.text[117]}
                         </Button>
                     </p>
                 </div>

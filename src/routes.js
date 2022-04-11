@@ -24,7 +24,7 @@ export default (
     <Route path="/about" component={About} />
     <Route path="/schedule" component={Schedule} />
     <Route path="/registration" component={Registration} />
-    <Route path="/payment" component={Payment} />
+    {/*<Route path="/payment" component={Payment} />*/}
     <Route path="/sponsors" component={Sponsors} />
     <Route path="/keynote" component={Keynote} />
     <Route path="/faq" component={FAQ} />

@@ -74,11 +74,7 @@ class App extends Component {
 {this.state.text[4]}
                              </Link>
                            </Menu.Item>
-                        <Menu.Item key={"payment"}>
-                             <Link to={"/payment"}>
-{this.state.text[5]}
-                             </Link>
-                           </Menu.Item>
+
                         <Menu.Item key={"sponsors"}>
                              <Link to={"/sponsors"}>
 {this.state.text[6]}

@@ -33,9 +33,9 @@ class FAQ extends Component {
 
     render() {
         const registerList = [
-          {description: this.state.text[90], key: 0},
-          {description: this.state.text[91], key: 1},
-          {description: this.state.text[92], key: 2}
+          {description: this.state.text[91], key: 0},
+          {description: this.state.text[92], key: 1},
+          {description: this.state.text[93], key: 2}
         ];
 
         const paymentList = [
@@ -55,17 +55,17 @@ class FAQ extends Component {
 </center>
                 </p>
                     <p className="App-header-text">
-                        {this.state.text[85]}
+                        {this.state.text[86]}
                     </p>
 
                 </div>
                 <div>
                     <Collapse bordered={false} defaultActiveKey={['1']}>
-                        <Panel header={this.state.text[86]} key="1" style={customPanelStyle}>
-                          <p>{this.state.text[87]}</p>
+                        <Panel header={this.state.text[87]} key="1" style={customPanelStyle}>
+                          <p>{this.state.text[88]}</p>
                         </Panel>
-                        <Panel header={this.state.text[88]} key="2" style={customPanelStyle}>
-                          <p>{this.state.text[89]}<br></br>
+                        <Panel header={this.state.text[89]} key="2" style={customPanelStyle}>
+                          <p>{this.state.text[90]}<br></br>
                               <ol>
                                 {registerList.map(reg => {
                                   return (
@@ -73,35 +73,34 @@ class FAQ extends Component {
                                   );
                                 })}
                               </ol>
-                            {this.state.text[93]}
+                            {this.state.text[94]}
                           </p>
                         </Panel>
-                        <Panel header={this.state.text[94]} key="3" style={customPanelStyle}>
-                          <p>{this.state.text[95]}</p>
+                        <Panel header={this.state.text[95]} key="3" style={customPanelStyle}>
+                          <p>{this.state.text[96]}</p>
                         </Panel>
-                        <Panel header={this.state.text[96]} key="4" style={customPanelStyle}>
+                        <Panel header={this.state.text[97]} key="4" style={customPanelStyle}>
                           <p>
-                            <ol>
-                                {paymentList.map(pay => {
-                                  return (
-                                    <li key={pay.key}>{pay.description}</li>
-                                  );
-                                })}
-                              </ol>
+                            {/*<ol>*/}
+                            {/*    {paymentList.map(pay => {*/}
+                            {/*      return (*/}
+                            {/*        <li key={pay.key}>{pay.description}</li>*/}
+                            {/*      );*/}
+                            {/*    })}*/}
+                            {/*  </ol>*/}
+                              {this.state.text[98]}
                           </p>
                         </Panel>
-                        <Panel header={this.state.text[100]} key="5" style={customPanelStyle}>
-                          <p>{this.state.text[101]}</p>
+                        <Panel header={this.state.text[101]} key="5" style={customPanelStyle}>
+                          <p>{this.state.text[102]}</p>
                         </Panel>
-                        <Panel header={this.state.text[102]} key="6" style={customPanelStyle}>
-                          <p>{this.state.text[103]}</p>
+                        <Panel header={this.state.text[103]} key="6" style={customPanelStyle}>
+                          <p>{this.state.text[104]}</p>
                         </Panel>
-                        <Panel header={this.state.text[104]} key="7" style={customPanelStyle}>
-                          <p>{this.state.text[105]}</p>
+                        <Panel header={this.state.text[105]} key="7" style={customPanelStyle}>
+                          <p>{this.state.text[106]}</p>
                         </Panel>
-                        <Panel header={this.state.text[106]} key="8" style={customPanelStyle}>
-                          <p>{this.state.text[107]}</p>
-                        </Panel>
+
                       </Collapse>
                 </div>
             </div>
