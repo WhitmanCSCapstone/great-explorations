@@ -43,8 +43,8 @@ class Schedule extends Component {
                     {this.state.text[31]}<span class="schedule">{this.state.text[32]}</span><br/>
                     {this.state.text[33]}<span class="schedule">{this.state.text[34]}</span><br/>
                     {this.state.text[35]}<span class="schedule">{this.state.text[36]}</span><br/>
-                    {this.state.text[122]}<span class="schedule">{this.state.text[36]}</span><br/>
-                    {this.state.text[123]}<span class="schedule">{this.state.text[36]}</span><br/>
+                    {this.state.text[122]}<span class="schedule">{this.state.text[123]}</span><br/>
+                    {this.state.text[124]}<span class="schedule">{this.state.text[125]}</span><br/>
                     {this.state.text[37]}<span class="schedule">{this.state.text[38]}</span><br/><br/><br/>
                     </p>
                     <p className="App-text">
