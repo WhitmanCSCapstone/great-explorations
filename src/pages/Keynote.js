@@ -44,9 +44,9 @@ class Keynote extends Component {
                     <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
                     <p className="App-text">
                     {/*<center><span class="picture">{this.state.text[79]}</span><br/><br/></center>*/}
-                    {this.state.text[81]}
-                    {this.state.text[82]}
-                    {this.state.text[83]}
+                    {this.state.text[81]}<br/><br/>
+                    {this.state.text[82]}<br/><br/>
+                    {this.state.text[83]}<br/><br/>
                     </p>
                     {/*<div><h3><img src={pic2} height="350px" alt="logo" /></h3></div>*/}
                     {/*<p className="picture">{this.state.text[79]}</p>*/}
@@ -57,9 +57,9 @@ class Keynote extends Component {
                     </p>
                     <div><h3><img src={pic2} height="300px" alt="logo" /></h3></div>
                     <p className="App-text">
-                    {this.state.text[85]}
-                    {this.state.text[125]}
-                    {this.state.text[126]}
+                    {this.state.text[85]}<br/><br/>
+                    {this.state.text[125]}<br/><br/>
+                    {this.state.text[126]}<br/><br/>
                     </p>
                     {<div><h3><img src={pic3} height="350px" alt="logo" /></h3></div>}
                 </div>
