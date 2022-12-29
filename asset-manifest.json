@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.1fb63b4f.chunk.css",
-    "main.js": "/static/js/main.736ab12c.chunk.js",
-    "main.js.map": "/static/js/main.736ab12c.chunk.js.map",
+    "main.js": "/static/js/main.8ec383c9.chunk.js",
+    "main.js.map": "/static/js/main.8ec383c9.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.152ee022.js",
     "runtime-main.js.map": "/static/js/runtime-main.152ee022.js.map",
     "static/css/2.e0509c22.chunk.css": "/static/css/2.e0509c22.chunk.css",
@@ -23,7 +23,8 @@
     "static/media/IMG_5740.26317b9b.jpg": "/static/media/IMG_5740.26317b9b.jpg",
     "static/media/Perron_Julie.2bd529ec.jpg": "/static/media/Perron_Julie.2bd529ec.jpg",
     "static/media/aurora.8b42bcb2.jpg": "/static/media/aurora.8b42bcb2.jpg",
-    "static/media/auroraKeynote.379b3ab8.jpg": "/static/media/auroraKeynote.379b3ab8.jpg",
+    "static/media/rachel_salt.16100c85.jpg": "/static/media/rachel_salt.16100c85.jpg",
+    "static/media/salt_books.38749f75.jpg": "/static/media/salt_books.38749f75.jpg",
     "static/media/ImageScroll.css": "/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
@@ -31,6 +32,6 @@
     "static/css/2.e0509c22.chunk.css",
     "static/js/2.a2554478.chunk.js",
     "static/css/main.1fb63b4f.chunk.css",
-    "static/js/main.736ab12c.chunk.js"
+    "static/js/main.8ec383c9.chunk.js"
   ]
 }
