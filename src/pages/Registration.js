@@ -61,7 +61,8 @@ class Registration extends Component {
                     <p className="App-text-tiny"><i>
                       {this.state.text[16]}
                     </i></p>
-                    <p align="right">
+                    {/* !!!!commenting out form until registration opens!!!! */}
+                    {/* <p align="right">
                         <Affix offsetTop={200}>
                             <Button type="primary"
                                 onClick={() => {
@@ -77,9 +78,10 @@ class Registration extends Component {
                         {/*        }}>{this.state.text[114]}*/}
                         {/*    </Button>*/}
                         {/*</Affix>*/}
-                    </p>
+                    {/*</p>
                     {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
-                    <p className="App-header-text" id="registration">
+                    {/* !!!!commenting out form until registration opens!!!! */}
+                    {/* <p className="App-header-text" id="registration">
                         <EmbedForm />
                     </p>
                     <p align="center">
@@ -87,6 +89,7 @@ class Registration extends Component {
                            {this.state.text[117]}
                         </Button>
                     </p>
+                    {/* !!!!end of commenting out form!!!! */}
                 </div>
             </div>
 
