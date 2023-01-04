@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import './ImageScroll.css';
 import './../App.css'
-import logo1 from './../grex_images/middle_in_class';
+import logo1 from './../grex_images/middle_in_class.jpg';
 import logo2 from './../grex_images/IMG_5710.jpg';
 import logo3 from './../grex_images/IMG_5733.jpg';
 import logo4 from './../grex_images/IMG_5740.jpg';
