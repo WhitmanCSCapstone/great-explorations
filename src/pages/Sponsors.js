@@ -41,7 +41,6 @@ class Sponsors extends Component {
                         <li>{this.state.text[62]}</li>
                         <li>{this.state.text[63]}</li>
                         <li>{this.state.text[64]}</li>
-                        <li>{this.state.text[124]}</li>
                         </ul>
                       </p>
                       <p className="App-text-subheader">
