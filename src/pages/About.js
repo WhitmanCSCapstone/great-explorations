@@ -4,7 +4,8 @@ import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 import brochureEn from './../brochures/GE2022En.pdf';
 import brochureEs from './../brochures/GE2022Es.pdf';
-import pic1 from "../grex_images/2022GEHeader.jpg";
+import pic1 from "../grex_images/youbelonghere.jpg";
+// import pic1 from "../grex_images/2022GEHeader.jpg";
 
 class About extends Component {
 
