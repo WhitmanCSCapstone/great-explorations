@@ -33,7 +33,7 @@ class About extends Component {
 <a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
                     </p>
-                    <div><h3><img src={pic1} height="100px" alt="logo" /></h3></div>
+                    <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
 
                     <p className="App-header-text">
                       {this.state.text[17]}
