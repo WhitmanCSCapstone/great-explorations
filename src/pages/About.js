@@ -36,7 +36,7 @@ class About extends Component {
                     <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
 
                     <p className="App-header-text">
-                      {this.state.text[17]}
+                        <center>{this.state.text[17]}</center>
                     </p>
                     <p className="App-header-text-2">
                         {this.state.text[119]}
