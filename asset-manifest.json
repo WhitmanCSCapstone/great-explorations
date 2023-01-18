@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.5e6e61f1.chunk.css",
-    "main.js": "/static/js/main.9ba04280.chunk.js",
-    "main.js.map": "/static/js/main.9ba04280.chunk.js.map",
+    "main.js": "/static/js/main.1ae3743a.chunk.js",
+    "main.js.map": "/static/js/main.1ae3743a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.152ee022.js",
     "runtime-main.js.map": "/static/js/runtime-main.152ee022.js.map",
     "static/css/2.e0509c22.chunk.css": "/static/css/2.e0509c22.chunk.css",
@@ -12,8 +12,8 @@
     "static/css/2.e0509c22.chunk.css.map": "/static/css/2.e0509c22.chunk.css.map",
     "static/css/main.5e6e61f1.chunk.css.map": "/static/css/main.5e6e61f1.chunk.css.map",
     "static/js/2.0af28250.chunk.js.LICENSE.txt": "/static/js/2.0af28250.chunk.js.LICENSE.txt",
-    "static/media/GE2022En.588b5362.pdf": "/static/media/GE2022En.588b5362.pdf",
-    "static/media/GE2022Es.05300778.pdf": "/static/media/GE2022Es.05300778.pdf",
+    "static/media/2023GE_EN_Mini.0e122cb3.pdf": "/static/media/2023GE_EN_Mini.0e122cb3.pdf",
+    "static/media/2023GE_ES_Mini.afbe2519.pdf": "/static/media/2023GE_ES_Mini.afbe2519.pdf",
     "static/media/Heckman.2bd529ec.jpg": "/static/media/Heckman.2bd529ec.jpg",
     "static/media/IMG_01.f4d2e770.jpg": "/static/media/IMG_01.f4d2e770.jpg",
     "static/media/IMG_02.d551482c.jpg": "/static/media/IMG_02.d551482c.jpg",
@@ -32,6 +32,6 @@
     "static/css/2.e0509c22.chunk.css",
     "static/js/2.0af28250.chunk.js",
     "static/css/main.5e6e61f1.chunk.css",
-    "static/js/main.9ba04280.chunk.js"
+    "static/js/main.1ae3743a.chunk.js"
   ]
 }
