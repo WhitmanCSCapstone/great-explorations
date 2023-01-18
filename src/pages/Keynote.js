@@ -4,8 +4,8 @@ import pic1 from './../grex_images/Heckman.jpg';
 import pic2 from './../grex_images/rachel_salt.jpg';
 import pic3 from './../grex_images/salt_books.jpg';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/GE2022En.pdf';
-import brochureEs from './../brochures/GE2022Es.pdf';
+import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
+import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
 
 class Keynote extends Component {
 

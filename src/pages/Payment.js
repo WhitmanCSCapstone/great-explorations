@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './../App.css';
 import { Collapse, Button } from 'antd';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/GE2022En.pdf';
-import brochureEs from './../brochures/GE2022Es.pdf';
+import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
+import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
 
 const Panel = Collapse.Panel;
 

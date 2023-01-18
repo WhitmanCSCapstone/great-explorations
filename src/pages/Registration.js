@@ -5,9 +5,8 @@ import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
 import ImageScroll from './../components/ImageScroll.js';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/GE2022En.pdf';
-import brochureEs from './../brochures/GE2022Es.pdf';
-
+import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
+import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
 class Registration extends Component {
 
     state = {
