@@ -49,18 +49,13 @@ class Registration extends Component {
                     <p className="App-text">
                         <center>{this.state.text[12]}<br></br></center>
                                 <center style={{ fontStyle: 'oblique' , fontWeight: '600'}}>{this.state.text[13]}</center><br></br>
-                                <center>{this.state.text[14]}</center>
+                                
                     </p>
-                    <p className="App-text-small">
-                      {this.state.text[15]}<br></br>
-                    </p>
-                    <p className="App-header-text">
-                        <WorkshopGrid />
-                    </p>
-                    <p className="App-text-tiny"><i>
-                      {this.state.text[16]}
-                    </i></p>
+                </div>
+                {/* 1/30/23 split div to maintain the iframe */}
+                <div >
                     {/* !!!!commenting out form until registration opens!!!! */}
+                    {/* this floating button was for the embeded form */}
                     {/* <p align="right">
                         <Affix offsetTop={200}>
                             <Button type="primary"
@@ -68,7 +63,7 @@ class Registration extends Component {
                                   window.location.hash = "#registration";
                                 }}>{this.state.text[115]}
                             </Button>
-                        </Affix>
+                        </Affix> */}
                         {/*<br></br>*/}
                         {/*<Affix offsetTop={255}>*/}
                         {/*    <Button type="danger"*/}
@@ -77,21 +72,51 @@ class Registration extends Component {
                         {/*        }}>{this.state.text[114]}*/}
                         {/*    </Button>*/}
                         {/*</Affix>*/}
-                    {/*</p>
+                    {/* </p> */}
                     {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
                     {/* !!!!commenting out form until registration opens!!!! */}
-                    {/* <p className="App-header-text" id="registration">
+                    {/* <p className="App-header-text" id="registration"> */}
+                    
+                    {/* changing registration from iframe embeded form to a link to new tab/window */}
+                    {/* <p align="center">
                         <EmbedForm />
+                    </p> */}
+
+                    <p className="App-header-text-2">
+                        <center> {this.state.text[127]} </center>
+                        <center style={{ fontSize: '2vw', color: 'black'}}>{this.state.text[128]}</center>
                     </p>
-                    <p align="center">
+                    <p className="App-text">
+                        <center> {this.state.text[129]} </center>
+                        {/* <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[129]}</center> */}
+                        <center><a target="_blank" href='https://forms.gle/pXKxarLCetFkPxVN9' rel="noopener norefferer">
+                         Great Explorations Pre-Registration Form.</a> <br></br></center>
+                    </p>
+                    <p className="App-text-tiny"><i>
+                      {this.state.text[16]}
+                    </i></p> <br></br>
+
+                    <p className="App-header-text-2">
+                        <center> {this.state.text[130]} </center>
+                        <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
+                    </p>
+                    
+                    {/* Now that the registration is linked to the form, there
+                        is no need for this extra button to confirm registration */}
+                    {/* <p align="center">
                         <Button type="primary" onClick={this.success} ghost>
                            {this.state.text[117]}
                         </Button>
-                    </p>
+                    </p> */}
                     {/* !!!!end of commenting out form!!!! */}
+                    <p className="App-text-small">
+                      {this.state.text[15]}<br></br>
+                    </p>
+                    <p className="App-header-text">
+                        <WorkshopGrid />
+                    </p>
                 </div>
             </div>
-
         )
     }
 }

@@ -21,6 +21,7 @@ var LANGUAGES = {
   spanish: 1
 };
 
+//changed range to include spanish workshops and SWITCH function to adjust range for get method in SHEET_LOAD
 var LANGUAGE = LANGUAGES.english;
 
 export function SWITCH_LANGUAGE() {
@@ -31,12 +32,24 @@ export function SWITCH_LANGUAGE() {
   }
 };
 
+var workshopstart = 0
+switch(LANGUAGE) {
+  case LANGUAGES.english:
+      workshopstart = 0;
+      break;
+  case LANGUAGES.spanish:
+      workshopstart = 8;
+      break;
+  default:
+      workshopstart = 0;
+}
+
 export function SHEET_LOAD(callback) {
   window.gapi.client.load("sheets", "v4", () => {
     window.gapi.client.sheets.spreadsheets.values
       .get({
         spreadsheetId: SHEET_INFO.spreadsheetId,
-        range: "Sheet1!A2:D"
+        range: "Sheet1!A2:K"
       })
       .then(
         raw => {
@@ -44,10 +57,10 @@ export function SHEET_LOAD(callback) {
 
           var n = 1;
           const workshops = data.map(workshop => ({
-            category: workshop[0],
-            instructor: workshop[1],
-            title: '('+(n++)+') '+workshop[2],
-            description: workshop[3]
+            category: workshop[workshopstart],
+            instructor: workshop[workshopstart+1],
+            title: '('+(n++)+') '+workshop[workshopstart+2],
+            description: workshop[workshopstart+3]
           })) || [];
 
           callback({

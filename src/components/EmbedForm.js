@@ -17,12 +17,11 @@ class ReadSheetTest extends React.Component {
     if (true) {
         //buttonText = "Hide Form";
         form = (
-          <div>
+          <div >
             <br />
-              <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSfaS_8XD8Sru6o56KNEh9Bkuwa6ntL50XRgi2OOf0_NGzbuYQ/viewform?embedded=true"
-                  width="640" height="4374" frameBorder="0" marginHeight="0" marginWidth="0">Loading…
-              </iframe>
+              <iframe className='responsive-iframe'  
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSccOS8nboRO6R4ARSEuQcq7wcWIpL_xUrcWB95QK2nzPbFDrQ/viewform?embedded=true" 
+                  height="5200" frameborder="0" >Loading…</iframe>
           </div>
         );
     }

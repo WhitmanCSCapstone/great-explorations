@@ -94,6 +94,21 @@
   color: black;
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+.responsive-iframe {
+  align-items: center;
+  position: bottom;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: fit-content;
+  border: none;
+}
 
 .schedule {   align-items: center;
   justify-content: center;

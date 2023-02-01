@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu, Checkbox } from 'antd';
-import { SHEET_INFO, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
+import { SHEET_INFO, SHEET_LOAD, WEBTEXT, WEBTEXT_LOAD, WEBTEXT_ADD_CALLBACK, SWITCH_LANGUAGE } from './components/SheetUtil';
 import { Link } from 'react-router';
 
 const { Header, Content, Footer } = Layout;
@@ -26,6 +26,7 @@ class App extends Component {
             })
             .then(() => {
                 WEBTEXT_LOAD();
+                SHEET_LOAD();
             },
             () => {
                 console.log("Error initializing Google API!");
@@ -34,7 +35,8 @@ class App extends Component {
 
     langSwitch = () => {
         SWITCH_LANGUAGE();
-        WEBTEXT_LOAD();
+        WEBTEXT_LOAD()
+        SHEET_LOAD();
     }
 
     updateText() {
