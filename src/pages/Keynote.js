@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './../App.css';
-import pic1 from './../grex_images/Heckman.jpg';
-import pic2 from './../grex_images/rachel_salt.jpg';
-import pic3 from './../grex_images/salt_books.jpg';
+import pic1 from './../grex_images/Peron.jpg';
+// import pic2 from './../grex_images/rachel_salt.jpg';
+// import pic3 from './../grex_images/salt_books.jpg';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
 import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
+
+//we are now referring to Keynote as Wecome, so that tab on the website has been changed
 
 class Keynote extends Component {
 
@@ -51,8 +53,8 @@ class Keynote extends Component {
                     {/*<div><h3><img src={pic2} height="350px" alt="logo" /></h3></div>*/}
                     {/*<p className="picture">{this.state.text[79]}</p>*/}
 
-                    {/*  secondary heading for special guest */}
-                    <p className="App-header-text-2">
+                    {/*  secondary heading for special guest - comment out if no special guest*/}
+                    {/* <p className="App-header-text-2">
                         <center>{this.state.text[84]}</center>
                     </p>
                     <div><h3><img src={pic2} height="300px" alt="logo" /></h3></div>
@@ -61,7 +63,7 @@ class Keynote extends Component {
                     {this.state.text[125]}<br/><br/>
                     {this.state.text[126]}<br/><br/>
                     </p>
-                    {<div><h3><img src={pic3} height="350px" alt="logo" /></h3></div>}
+                    {<div><h3><img src={pic3} height="350px" alt="logo" /></h3></div>} */}
                 </div>
             </div>
 

@@ -52,18 +52,41 @@ class Registration extends Component {
                                 
                     </p>
                 </div>
-                {/* 1/30/23 split div to maintain the iframe */}
                 <div >
-                {/* this section is the registration header and main text. It will say "coming soon" "time to register" "time is 
-                running out" and "registration is closed" */}
+                    {/* this floating button was for the embeded form */}
+                    {/* <p align="right">
+                        <Affix offsetTop={200}>
+                            <Button type="primary"
+                                onClick={() => {
+                                  window.location.hash = "#registration";
+                                }}>{this.state.text[115]}
+                            </Button>
+                        </Affix> */}
+                        {/*<br></br>*/}
+                        {/*<Affix offsetTop={255}>*/}
+                        {/*    <Button type="danger"*/}
+                        {/*        onClick={() => {*/}
+                        {/*          window.location.hash = "#registration";*/}
+                        {/*        }}>{this.state.text[114]}*/}
+                        {/*    </Button>*/}
+                        {/*</Affix>*/}
+                    {/* </p> */}
+                    {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
+                    {/* !!!!commenting out form until registration opens!!!! */}
+                    {/* <p className="App-header-text" id="registration"> */}
+                    
+                    {/* changing registration from iframe embeded form to a link to new tab/window */}
+                    {/* <p align="center">
+                        <EmbedForm />
+                    </p> */}
 
-                     <p className="App-header-text-2">
+                    <p className="App-header-text-2">
                         <center> {this.state.text[127]} </center>
                         <center style={{ fontSize: '2vw', color: 'black'}}>{this.state.text[128]}</center>
                     </p>
-{/* the remaining will be commented out before and after registration is active. Includes form and who to contact if technical issues.
                     <p className="App-text">
                         <center> {this.state.text[129]} </center>
+                        {/* <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[129]}</center> */}
                         <center><a target="_blank" href='https://forms.gle/pXKxarLCetFkPxVN9' rel="noopener norefferer">
                          Great Explorations Pre-Registration Form.</a> <br></br></center>
                     </p>
@@ -75,15 +98,20 @@ class Registration extends Component {
                         <center> {this.state.text[130]} </center>
                         <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
                     </p>
-
+                    
+                    {/* Now that the registration is linked to the form, there
+                        is no need for this extra button to confirm registration */}
+                    {/* <p align="center">
+                        <Button type="primary" onClick={this.success} ghost>
+                           {this.state.text[117]}
+                        </Button>
+                    </p> */}
                     <p className="App-text-small">
                       {this.state.text[15]}<br></br>
                     </p>
                     <p className="App-header-text">
                         <WorkshopGrid />
                     </p>
-                    */}
-{/* end of comment section when registration is not active */}
                 </div>
             </div>
         )

@@ -35,7 +35,6 @@ class FAQ extends Component {
         const registerList = [
           {description: this.state.text[91], key: 0},
           {description: this.state.text[92], key: 1},
-          {description: this.state.text[93], key: 2}
         ];
 
         const paymentList = [
