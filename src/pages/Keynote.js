@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import pic1 from './../grex_images/Peron.jpg';
+import pic1 from './../grex_images/Perron.jpg';
 // import pic2 from './../grex_images/rachel_salt.jpg';
 // import pic3 from './../grex_images/salt_books.jpg';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';

@@ -84,20 +84,21 @@ class Registration extends Component {
                         <center> {this.state.text[127]} </center>
                         <center style={{ fontSize: '2vw', color: 'black'}}>{this.state.text[128]}</center>
                     </p>
+                    {/*} comment out the registration form until open
                     <p className="App-text">
                         <center> {this.state.text[129]} </center>
-                        {/* <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[129]}</center> */}
                         <center><a target="_blank" href='https://forms.gle/pXKxarLCetFkPxVN9' rel="noopener norefferer">
                          Great Explorations Pre-Registration Form.</a> <br></br></center>
-                    </p>
+                    </p> */}
+                    {/* comment out the instructions and workshops until open
                     <p className="App-text-tiny"><i>
                       {this.state.text[16]}
-                    </i></p> <br></br>
+                    </i></p> <br></br>  
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[130]} </center>
                         <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
-                    </p>
+                    </p>  
                     
                     {/* Now that the registration is linked to the form, there
                         is no need for this extra button to confirm registration */}
@@ -105,13 +106,13 @@ class Registration extends Component {
                         <Button type="primary" onClick={this.success} ghost>
                            {this.state.text[117]}
                         </Button>
-                    </p> */}
+                    </p> 
                     <p className="App-text-small">
                       {this.state.text[15]}<br></br>
                     </p>
                     <p className="App-header-text">
                         <WorkshopGrid />
-                    </p>
+                    </p> */}
                 </div>
             </div>
         )
