@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
-import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
+import brochureEn from './../brochures/2025GE_EN.pdf';
+import brochureEs from './../brochures/2025GE_ES.pdf';
 
 class Contact extends Component {
 

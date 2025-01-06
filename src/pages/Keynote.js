@@ -4,8 +4,8 @@ import pic1 from './../grex_images/Perron.jpg';
 // import pic2 from './../grex_images/rachel_salt.jpg';
 // import pic3 from './../grex_images/salt_books.jpg';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
-import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
+import brochureEn from './../brochures/2025GE_EN.pdf';
+import brochureEs from './../brochures/2025GE_ES.pdf';
 
 //we are now referring to Keynote as Wecome, so that tab on the website has been changed
 
@@ -39,7 +39,7 @@ class Keynote extends Component {
                         {this.state.text[76]}
                     </p>
 
-                    <p className="App-header-text-2">
+                    <p className="App-text">  {/*from App-header-text-2*/}
                         <center>{this.state.text[77]}<br/>{this.state.text[78]}</center>
                     </p>
 

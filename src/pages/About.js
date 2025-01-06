@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
-import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
-import pic1 from "../grex_images/youbelonglogo.jpg";
-// import pic1 from "../grex_images/2022GEHeader.jpg";
+import brochureEn from './../brochures/2025GE_EN.pdf';
+import brochureEs from './../brochures/2025GE_ES.pdf';
+import pic1 from "../grex_images/GE2025_SparkSplash.jpg";
+// import pic2 from "../grex_images/GE2025_SparkSplash_es.jpg";
 
 class About extends Component {
 
@@ -32,16 +32,23 @@ class About extends Component {
 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
 <a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
-                    </p>
-                    <div><h3><img src={pic1} height="300px" alt="logo" /></h3></div>
-
                     <p className="App-header-text">
                         <center>{this.state.text[17]}</center>
                     </p>
+
+                    {/* was height 300px - trying to display larger. Also changed to center*/}
+                    {/* <div><h3><img src={pic1} width="500px" alt="logo" /></h3></div> */}
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <h3>
+                           <img src={pic1} width="500px" alt="logo" />
+                        </h3>
+                    </div>
+                    
+                    </p>
                     <p className="App-header-text-2">
                         {this.state.text[119]}
-
                     </p>
+                    
                     <p className="App-text">
                     {this.state.text[18]}<br/><br/>
                     {this.state.text[19]}<br/><br/>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
-import brochureEn from './../brochures/2023GE_EN_Mini.pdf';
-import brochureEs from './../brochures/2023GE_ES_Mini.pdf';
+import brochureEn from './../brochures/2025GE_EN.pdf';
+import brochureEs from './../brochures/2025GE_ES.pdf';
 
 class Sponsors extends Component {
 
@@ -49,7 +49,7 @@ class Sponsors extends Component {
                         <li>{this.state.text[67]}</li>
                         <li>{this.state.text[68]}</li>
                         <li>{this.state.text[69]}</li>
-                        <li>{this.state.text[70]}</li>
+                        {/* <li>{this.state.text[70]}</li> */}
                         </ul>
                       </p>
                       <p className="App-text-subheader">
