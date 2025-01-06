@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.e256b937.chunk.css",
-    "main.js": "/static/js/main.3787e01f.chunk.js",
-    "main.js.map": "/static/js/main.3787e01f.chunk.js.map",
+    "main.js": "/static/js/main.5bbf6eb4.chunk.js",
+    "main.js.map": "/static/js/main.5bbf6eb4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.152ee022.js",
     "runtime-main.js.map": "/static/js/runtime-main.152ee022.js.map",
     "static/css/2.e0509c22.chunk.css": "/static/css/2.e0509c22.chunk.css",
@@ -14,6 +14,9 @@
     "static/js/2.0af28250.chunk.js.LICENSE.txt": "/static/js/2.0af28250.chunk.js.LICENSE.txt",
     "static/media/2023GE_EN_Mini.0e122cb3.pdf": "/static/media/2023GE_EN_Mini.0e122cb3.pdf",
     "static/media/2023GE_ES_Mini.afbe2519.pdf": "/static/media/2023GE_ES_Mini.afbe2519.pdf",
+    "static/media/2025GE_EN.ed49bd4e.pdf": "/static/media/2025GE_EN.ed49bd4e.pdf",
+    "static/media/2025GE_ES.b6e4a2b4.pdf": "/static/media/2025GE_ES.b6e4a2b4.pdf",
+    "static/media/GE2025_SparkSplash.01294ff5.jpg": "/static/media/GE2025_SparkSplash.01294ff5.jpg",
     "static/media/IMG_01.f4d2e770.jpg": "/static/media/IMG_01.f4d2e770.jpg",
     "static/media/IMG_02.d551482c.jpg": "/static/media/IMG_02.d551482c.jpg",
     "static/media/IMG_03.ed5e3a20.jpg": "/static/media/IMG_03.ed5e3a20.jpg",
@@ -22,14 +25,13 @@
     "static/media/IMG_06.b8285990.jpg": "/static/media/IMG_06.b8285990.jpg",
     "static/media/IMG_07.8f6904d6.jpg": "/static/media/IMG_07.8f6904d6.jpg",
     "static/media/Perron.e2d56f56.jpg": "/static/media/Perron.e2d56f56.jpg",
-    "static/media/ImageScroll.css": "/static/media/slick.c94f7671.ttf",
-    "static/media/youbelonglogo.d7e28b53.jpg": "/static/media/youbelonglogo.d7e28b53.jpg"
+    "static/media/ImageScroll.css": "/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.152ee022.js",
     "static/css/2.e0509c22.chunk.css",
     "static/js/2.0af28250.chunk.js",
     "static/css/main.e256b937.chunk.css",
-    "static/js/main.3787e01f.chunk.js"
+    "static/js/main.5bbf6eb4.chunk.js"
   ]
 }
