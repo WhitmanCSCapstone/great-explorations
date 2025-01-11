@@ -53,11 +53,6 @@ class Registration extends Component {
                     </p>
                 </div>
                 <div >
-                    
-                    {/* changing registration from iframe embeded form to a link to new tab/window */}
-                    {/* <p align="center">
-                        <EmbedForm />
-                    </p> */}
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[127]} </center>
@@ -78,14 +73,7 @@ class Registration extends Component {
                         <center> {this.state.text[130]} </center>
                         <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
                     </p>  
-                    
-                    {/* Now that the registration is linked to the form, there
-                        is no need for this extra button to confirm registration */}
-                    {/* <p align="center">
-                        <Button type="primary" onClick={this.success} ghost>
-                           {this.state.text[117]}
-                        </Button>
-                    </p> */}
+
                     <p className="App-text-small">
                       {this.state.text[15]}<br></br>
                     </p>

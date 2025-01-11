@@ -23,6 +23,12 @@ class About extends Component {
     }
 
     render() {
+        // Get the screen width
+        const screenWidth = window.innerWidth;
+
+        // Determine image width based on screen size
+        const imageWidth = screenWidth <= 600 ? '100%' : '500px'; // Use 100% width for screens <= 600px
+
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
@@ -36,11 +42,19 @@ class About extends Component {
                         <center>{this.state.text[17]}</center>
                     </p>
 
-                    {/* was height 300px - trying to display larger. Also changed to center*/}
-                    {/* <div><h3><img src={pic1} width="500px" alt="logo" /></h3></div> */}
+                    {/* was height 300px - trying to display larger. Also changed to center. And changed to read screenWidth for mobile*/}
+                    {/* Center the image and adjust width based on screen size */}
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <h3>
-                           <img src={pic1} width="500px" alt="logo" />
+                            <img 
+                                src={pic1} 
+                                style={{ 
+                                    width: imageWidth, 
+                                    maxWidth: '100%', // Prevents the image from getting too wide
+                                    height: 'auto'  // Ensures aspect ratio is preserved
+                                }} 
+                                alt="logo" 
+                            />
                         </h3>
                     </div>
                     
