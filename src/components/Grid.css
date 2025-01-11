@@ -6,11 +6,14 @@
 .gutter-box {
   background: #456eff;
   padding: 10px 10px 10px 10px;
-  width: 20vi;
-  height: 6vw;
+  width: 18vi; /*adjusted to decrease the width and fit better on phone */
+  height: 10vw; /* adjusted to increase depth to fit the title */
   color: white;
-  font-size: calc(2vw - 0.25rem);
+  font-size: calc(1.5vw - 0.25rem); /* Adjust here to change font size */
   text-align: center;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 

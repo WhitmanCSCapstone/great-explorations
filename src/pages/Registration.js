@@ -53,27 +53,6 @@ class Registration extends Component {
                     </p>
                 </div>
                 <div >
-                    {/* this floating button was for the embeded form */}
-                    {/* <p align="right">
-                        <Affix offsetTop={200}>
-                            <Button type="primary"
-                                onClick={() => {
-                                  window.location.hash = "#registration";
-                                }}>{this.state.text[115]}
-                            </Button>
-                        </Affix> */}
-                        {/*<br></br>*/}
-                        {/*<Affix offsetTop={255}>*/}
-                        {/*    <Button type="danger"*/}
-                        {/*        onClick={() => {*/}
-                        {/*          window.location.hash = "#registration";*/}
-                        {/*        }}>{this.state.text[114]}*/}
-                        {/*    </Button>*/}
-                        {/*</Affix>*/}
-                    {/* </p> */}
-                    {/* Only naming the hash after the page's name because anchors are behaving poorly with React's hash routing */}
-                    {/* !!!!commenting out form until registration opens!!!! */}
-                    {/* <p className="App-header-text" id="registration"> */}
                     
                     {/* changing registration from iframe embeded form to a link to new tab/window */}
                     {/* <p align="center">
@@ -93,7 +72,7 @@ class Registration extends Component {
                     {/* comment out the instructions and workshops until open
                     <p className="App-text-tiny"><i>
                       {this.state.text[16]}
-                    </i></p> <br></br>  
+                    </i></p> <br></br>  */}
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[130]} </center>
@@ -106,13 +85,13 @@ class Registration extends Component {
                         <Button type="primary" onClick={this.success} ghost>
                            {this.state.text[117]}
                         </Button>
-                    </p> 
+                    </p> */}
                     <p className="App-text-small">
                       {this.state.text[15]}<br></br>
                     </p>
                     <p className="App-header-text">
                         <WorkshopGrid />
-                    </p> */}
+                    </p> 
                 </div>
             </div>
         )
