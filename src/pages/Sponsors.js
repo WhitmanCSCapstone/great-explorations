@@ -19,15 +19,16 @@ class Sponsors extends Component {
         this.setState({ text: WEBTEXT });
     }
 
+    // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements"
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                 <p className="App-text">
                     <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-<a target="_blank" href={brochureEn}>English Brochure Download</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
                 </p>
                     <p className="App-header-text">

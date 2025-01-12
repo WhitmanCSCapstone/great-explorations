@@ -8,7 +8,7 @@ import App from './App';
 import Registration from './pages/Registration.js';
 import About from './pages/About.js';
 import Sponsors from './pages/Sponsors.js';
-import Payment from './pages/Payment.js';
+//import Payment from './pages/Payment.js';
 import FAQ from './pages/FAQ.js';
 import Keynote from './pages/Keynote.js';
 import Contact from './pages/Contact.js';

@@ -6,24 +6,45 @@ import { SHEET_LOAD, SHEET_INFO } from './SheetUtil';
 class WorkshopGrid extends React.Component {
     state = {
         workshops: [],
-        error: null
+        error: null,
+        // added this for language
+        currentLanguage: this.props.language, // Track the current language for updates
     }
 
     componentDidMount() {
         window.gapi.load("client", this.initClient);
     }
 
+    // 2025: to recognize language change
+    componentDidUpdate(prevProps) {
+        if (prevProps.language !== this.props.language) {
+            console.log("Language switched. Reloading workshops...");
+            this.initClient(); // Reload the grid data
+        }
+    }
     initClient = () => {
         window.gapi.client
             .init({
                 apiKey: SHEET_INFO.apiKey,
                 discoveryDocs: SHEET_INFO.discoveryDocs
             })
+            // .then(() => {
+            //     this.loadWorkshopData();
             .then(() => {
                 SHEET_LOAD(this.onLoad);
+            })
+            .catch(() => {
+                console.error("Error initializing Google API.");
         });
     }
 
+    // loadWorkshopData = () => {
+    //     SHEET_LOAD(this.onLoad); // Fetch the workshops from the sheet
+    // }
+    reloadWorkshops = () => {
+        SHEET_LOAD(this.onLoad); // Reload workshop data based on the new language
+    };
+    
     onLoad = (data, error) => {
         if (data) {
             var temp = data.workshops;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { message, Button, Affix } from 'antd';
+import { message } from 'antd';
 import './../App.css';
-import EmbedForm from './../components/EmbedForm.js';
 import WorkshopGrid from './../components/Grid.js';
 import ImageScroll from './../components/ImageScroll.js';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
@@ -26,16 +25,17 @@ class Registration extends Component {
       window.location.replace("/#");
       message.success(this.state.text[118], 10);
     };
-
+    
+    // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements"
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
-                <p className="App-text">
+                <p className="App-text"> 
                     <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-<a target="_blank" href={brochureEn}>English Brochure Download</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
                 </p>
                     <p className="App-header-text">
@@ -78,7 +78,7 @@ class Registration extends Component {
                       {this.state.text[15]}<br></br>
                     </p>
                     <p className="App-header-text">
-                        <WorkshopGrid />
+                        <WorkshopGrid language={this.props.language} />
                     </p> 
                 </div>
             </div>

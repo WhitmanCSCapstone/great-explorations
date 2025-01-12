@@ -10,7 +10,8 @@ class App extends Component {
 
     state = {
         current: "registration",
-        text: []
+        text: [],
+        language: "en" // Default language
     }
 
     componentDidMount() {
@@ -34,11 +35,16 @@ class App extends Component {
     }
 
     langSwitch = () => {
-        SWITCH_LANGUAGE();
-        WEBTEXT_LOAD()
-        SHEET_LOAD();
+        SWITCH_LANGUAGE(); // Switch the language
+        console.log("Language switched in App.js:", this.state.language);
+        WEBTEXT_LOAD()     // Reload the web text in the new language
+        SHEET_LOAD(() => {
+            console.log("SHEET_LOAD called after language switch.");
+        });
+        // SHEET_LOAD();      // Reload the sheet data in the new language
+        this.setState({ language: this.state.language === "en" ? "es" : "en" }); // Toggle language
     }
-
+    
     updateText() {
         this.setState({ text: WEBTEXT });
     }
@@ -63,49 +69,52 @@ class App extends Component {
                     >
                         <Menu.Item key={"about"}>
                              <Link to={"/about"}>
-{this.state.text[2]}
+                                {this.state.text[2]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"schedule"}>
                              <Link to={"/schedule"}>
-{this.state.text[3]}
+                                {this.state.text[3]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"registration"}>
                              <Link to={"/registration"}>
-{this.state.text[4]}
+                                {this.state.text[4]}
                              </Link>
                            </Menu.Item>
 
                         <Menu.Item key={"sponsors"}>
                              <Link to={"/sponsors"}>
-{this.state.text[6]}
+                                {this.state.text[6]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"keynote"}>
                              <Link to={"/keynote"}>
-{this.state.text[7]}
+                                {this.state.text[7]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"faq"}>
                              <Link to={"/faq"}>
-{this.state.text[8]}
+                                {this.state.text[8]}
                              </Link>
                            </Menu.Item>
                         <Menu.Item key={"/contact"}>
                              <Link to={"/contact"}>
-{this.state.text[9]}
+                                {this.state.text[9]}
                              </Link>
                            </Menu.Item>
                         {<Checkbox onChange={this.langSwitch} style={{ color: "#9fa7ae", marginLeft: "20px" }}>Español</Checkbox>}
                     </Menu>
                 </Header>
 
-                <Content style={{ padding: '0 3vw 0 3vw', minHeight: '100vh'}}>
+                {/* <Content style={{ padding: '0 3vw 0 3vw', minHeight: '100vh'}}>
                   {this.props.children}
+                </Content> */}
+                <Content style={{ padding: '0 3vw 0 3vw', minHeight: '100vh' }}>
+                    {React.cloneElement(this.props.children, { language: this.state.language })}
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-{this.state.text[1]}
+                    {this.state.text[1]}
                 </Footer>
             </Layout>
         );

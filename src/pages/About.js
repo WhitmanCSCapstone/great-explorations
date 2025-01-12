@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
+// import { Row, Col } from 'antd';
 import './../App.css';
 import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 import brochureEn from './../brochures/2025GE_EN.pdf';
@@ -29,14 +29,15 @@ class About extends Component {
         // Determine image width based on screen size
         const imageWidth = screenWidth <= 600 ? '100%' : '500px'; // Use 100% width for screens <= 600px
 
+        // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements"
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
                     <p className="App-text">
                         <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-<a target="_blank" href={brochureEn}>English Brochure Download</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
                     <p className="App-header-text">
                         <center>{this.state.text[17]}</center>

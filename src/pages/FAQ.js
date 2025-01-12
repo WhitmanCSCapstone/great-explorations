@@ -37,20 +37,22 @@ class FAQ extends Component {
           {description: this.state.text[92], key: 1},
         ];
 
-        const paymentList = [
+        /* payment list is not needed as the event is free. 
+          const paymentList = [
           {description: this.state.text[97], key: 0},
           {description: this.state.text[98], key: 1},
           {description: this.state.text[99], key: 2}
-        ];
+        ]; */
 
+        // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements"
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                 <p className="App-text">
                     <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-<a target="_blank" href={brochureEn}>English Brochure Download</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-<a target="_blank" href={brochureEs}>Descargar Folleto en Español</a>
+<a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
 </center>
                 </p>
                     <p className="App-header-text">

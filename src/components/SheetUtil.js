@@ -22,27 +22,34 @@ var LANGUAGES = {
 };
 
 //changed range to include spanish workshops and SWITCH function to adjust range for get method in SHEET_LOAD
+var workshopstart = 0
+
 var LANGUAGE = LANGUAGES.english;
 
-export function SWITCH_LANGUAGE() {
+export function SWITCH_LANGUAGE(callback) {
   if (LANGUAGE === LANGUAGES.english) {
       LANGUAGE = LANGUAGES.spanish;
   } else {
       LANGUAGE = LANGUAGES.english;
   }
+  localStorage.setItem("currentLanguage", LANGUAGE);
+
+  switch(LANGUAGE) {
+    case LANGUAGES.english:
+        workshopstart = 0;
+        break;
+    case LANGUAGES.spanish:
+        workshopstart = 7;
+        break;
+    default:
+        workshopstart = 0;
+  }  
+
+  // Trigger a reload of the sheet data after switching language
+  SHEET_LOAD(callback);
 };
 
-var workshopstart = 0
-switch(LANGUAGE) {
-  case LANGUAGES.english:
-      workshopstart = 0;
-      break;
-  case LANGUAGES.spanish:
-      workshopstart = 8;
-      break;
-  default:
-      workshopstart = 0;
-}
+
 
 export function SHEET_LOAD(callback) {
   window.gapi.client.load("sheets", "v4", () => {
@@ -63,6 +70,8 @@ export function SHEET_LOAD(callback) {
             description: workshop[workshopstart+3]
           })) || [];
 
+          // LOGGING FOR DEBUG
+          // console.log("Workshops loaded:", workshops);
           callback({
             workshops
           });
