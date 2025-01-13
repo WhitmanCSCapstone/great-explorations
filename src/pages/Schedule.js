@@ -19,22 +19,24 @@ class Schedule extends Component {
         this.setState({ text: WEBTEXT });
     }
 
-    // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements"
+    // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements and adjusted for mobile devices"
     render() {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div className="App-header-text">
-                <p className="App-text">
-                    <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-<a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
-{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-<a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
-</center>
-                </p>
-                  <p className="App-header-text">
-                    {this.state.text[22]}
-                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[23]}</center>
-                    <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[24]}</center>
+                    <p className="App-text" style={{ textAlign: 'center' }}> 
+                        <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
+                            English Brochure Download
+                        </a>
+                        <span style={{ padding: '0 15px' }}>&nbsp;</span> {/* Added spacing between the two links */}
+                        <a target="_blank" rel="noreferrer noopener" href={brochureEs} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
+                            Descargar Folleto en Español
+                        </a>
+                    </p>
+                    <p className="App-header-text">
+                        {this.state.text[22]}
+                        <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[23]}</center>
+                        <center style={{ fontSize: '1.7vw', color: 'darkblue', fontWeight: '400'}}>{this.state.text[24]}</center>
                     </p>
 
                     <p className="App-text">

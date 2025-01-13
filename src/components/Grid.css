@@ -5,19 +5,36 @@
 }
 .gutter-box {
   background: #456eff;
-  padding: 10px 10px 10px 10px;
-  width: 18vi; /*adjusted to decrease the width and fit better on phone */
-  height: 10vw; /* adjusted to increase depth to fit the title */
+  padding: 15px; /* Slightly increase padding */
+  width: 100%; /* Use a percentage for responsive sizing */
+  height: 200px; /* Fixed height for uniform size */
   color: white;
-  font-size: calc(1.5vw - 0.25rem); /* Adjust here to change font size */
+  font-size: 1rem; /* Default font size */
   text-align: center;
   display: flex; /* Enable flexbox */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
+  margin: 0 auto; /* Center the box horizontally */
+  box-sizing: border-box; /* Make sure padding is included in the total size */
 }
 
 
 .gutter-box-text {
+}
+/* 2025: make more readable on mobile devices */
+/* Media query for smaller screens (e.g., mobile) */
+@media (max-width: 883px) {
+  .gutter-box {
+    font-size: 1rem; /* Increase font size for readability */
+    width: 95%; /* Adjust width for better fit on mobile */
+    height: 150px; /* Adjust height for content flexibility */
+    padding: 20px; /* Optional: Increase padding for smaller screens */
+  }
+}
+@media (min-width: 884px) {
+  .gutter-box {
+      height: 150px; /* Adjust height for larger screens */
+  }
 }
 /*
 #456eff good color
