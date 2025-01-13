@@ -5,7 +5,7 @@ import { WEBTEXT, WEBTEXT_ADD_CALLBACK } from '../components/SheetUtil';
 import brochureEn from './../brochures/2025GE_EN.pdf';
 import brochureEs from './../brochures/2025GE_ES.pdf';
 import pic1 from "../grex_images/GE2025_SparkSplash.jpg";
-// import pic2 from "../grex_images/GE2025_SparkSplash_es.jpg";
+import pic2 from "../grex_images/GE2025_SparkSplash_ES.jpg";
 
 class About extends Component {
 
@@ -29,6 +29,9 @@ class About extends Component {
         // Determine image width based on screen size
         const imageWidth = screenWidth <= 600 ? '100%' : '500px'; // Use 100% width for screens <= 600px
 
+        // 2025: Determine the image to display based on the language prop
+        const displayImage = this.props.language === 'es' ? pic2 : pic1;
+
         // 2025: fixed security issue by adding rel="noreferrer noopener to all <a elements and adjusted for mobile devices"
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
@@ -50,7 +53,7 @@ class About extends Component {
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <h3>
                             <img 
-                                src={pic1} 
+                                src={displayImage} 
                                 style={{ 
                                     width: imageWidth, 
                                     maxWidth: '100%', // Prevents the image from getting too wide

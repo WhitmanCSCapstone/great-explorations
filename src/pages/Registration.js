@@ -31,14 +31,6 @@ class Registration extends Component {
         return (
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
-                {/* <p className="App-text"> 
-                    <center style={{ fontSize: '1.25vw', color: 'black', fontWeight: '200'}}>
-                        <a target="_blank" rel="noreferrer noopener" href={brochureEn}>English Brochure Download</a>
-                            {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-                        <a target="_blank" rel="noreferrer noopener" href={brochureEs}>Descargar Folleto en Español</a>
-                    </center>
-        
-                </p> */}
                     <p className="App-text" style={{ textAlign: 'center' }}> 
                         <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
                             English Brochure Download
