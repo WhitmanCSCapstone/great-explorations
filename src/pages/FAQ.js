@@ -7,14 +7,14 @@ import brochureEs from './../brochures/2025GE_ES.pdf';
 
 const Panel = Collapse.Panel;
 
-const customPanelStyle = {
+/* const customPanelStyle = {
   background: '#f7f7f7',
   fontSize: '2vw',
   borderRadius: 4,
   marginBottom: 24,
   border: 0,
   overflow: 'hidden',
-};
+}; */
 
 class FAQ extends Component {
 
@@ -49,12 +49,12 @@ class FAQ extends Component {
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                   <p className="App-text" style={{ textAlign: 'center' }}> 
-                      <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
-                          English Brochure Download
+                      <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(.1rem, 1vw, 2rem) !important', whiteSpace: 'nowrap' }}>
+                        English Brochure Download
                       </a>
                       <span style={{ padding: '0 15px' }}>&nbsp;</span> {/* Added spacing between the two links */}
-                      <a target="_blank" rel="noreferrer noopener" href={brochureEs} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
-                          Descargar Folleto en Español
+                      <a target="_blank" rel="noreferrer noopener" href={brochureEs} style={{ fontSize: 'clamp(.1rem, 1vw, 2rem) !important', whiteSpace: 'nowrap' }}>
+                        Descargar Folleto en Español
                       </a>
                   </p>
                   <p className="App-header-text">
@@ -64,10 +64,10 @@ class FAQ extends Component {
                 </div>
                 <div>
                     <Collapse bordered={false} defaultActiveKey={['1']}>
-                        <Panel header={this.state.text[87]} key="1" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[87]} key="1">
                           <p>{this.state.text[88]}</p>
                         </Panel>
-                        <Panel header={this.state.text[89]} key="2" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[89]} key="2">
                           <p>{this.state.text[90]}<br></br>
                               <ol>
                                 {registerList.map(reg => {
@@ -79,10 +79,10 @@ class FAQ extends Component {
                             {this.state.text[94]}
                           </p>
                         </Panel>
-                        <Panel header={this.state.text[95]} key="3" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[95]} key="3">
                           <p>{this.state.text[96]}</p>
                         </Panel>
-                        <Panel header={this.state.text[97]} key="4" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[97]} key="4">
                           <p>
                             {/*<ol>*/}
                             {/*    {paymentList.map(pay => {*/}
@@ -94,13 +94,13 @@ class FAQ extends Component {
                               {this.state.text[98]}
                           </p>
                         </Panel>
-                        <Panel header={this.state.text[101]} key="5" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[101]} key="5">
                           <p>{this.state.text[102]}</p>
                         </Panel>
-                        <Panel header={this.state.text[103]} key="6" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[103]} key="6">
                           <p>{this.state.text[104]}</p>
                         </Panel>
-                        <Panel header={this.state.text[105]} key="7" style={customPanelStyle}>
+                        <Panel className="custom-panel" header={this.state.text[105]} key="7">
                           <p>{this.state.text[106]}</p>
                         </Panel>
 

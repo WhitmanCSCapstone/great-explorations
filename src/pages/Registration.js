@@ -32,11 +32,11 @@ class Registration extends Component {
             <div style={{ background: '#fff', padding: 24, minHeight: '100vh' }}>
                 <div>
                     <p className="App-text" style={{ textAlign: 'center' }}> 
-                        <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
+                        <a target="_blank" rel="noreferrer noopener" href={brochureEn} style={{ fontSize: 'clamp(.1rem, 1vw, 2rem) !important', whiteSpace: 'nowrap' }}>
                             English Brochure Download
                         </a>
                         <span style={{ padding: '0 15px' }}>&nbsp;</span> {/* Added spacing between the two links */}
-                        <a target="_blank" rel="noreferrer noopener" href={brochureEs} style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem) !important', fontWeight: '200 !important', whiteSpace: 'nowrap' }}>
+                        <a target="_blank" rel="noreferrer noopener" href={brochureEs} style={{ fontSize: 'clamp(.1rem, 1vw, 2rem) !important', whiteSpace: 'nowrap' }}>
                             Descargar Folleto en Español
                         </a>
                     </p>
@@ -44,9 +44,9 @@ class Registration extends Component {
                         <ImageScroll />
                     </p>
 
-                    <p className="App-header-text">
+                    <p className="App-header-text" style={{ textAlign: 'center' }}>
                         {this.state.text[10]}<br></br>
-                        <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[11]}</center>
+                        <center style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem)', color: 'black', fontWeight: '400'}}>{this.state.text[11]}</center>
                     </p>
                     <p className="App-text">
                         <center>{this.state.text[12]}<br></br></center>
@@ -58,7 +58,7 @@ class Registration extends Component {
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[127]} </center>
-                        <center style={{ fontSize: '2vw', color: 'black'}}>{this.state.text[128]}</center>
+                        <center style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem)', color: 'black'}}>{this.state.text[128]}</center>
                     </p>
                     {/*} comment out the registration form until open
                     <p className="App-text">
@@ -73,7 +73,7 @@ class Registration extends Component {
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[130]} </center>
-                        <center style={{ fontSize: '2vw', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
+                        <center style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem)', color: 'black', fontWeight: '400'}}>{this.state.text[14]}</center>
                     </p>  
 
                     <p className="App-text-small">

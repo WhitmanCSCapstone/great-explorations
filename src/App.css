@@ -1,3 +1,38 @@
+:root {
+  --font-large: 5vw;
+  --font-medium: 4vw;
+  --font-small: 2vw;
+  --font-tiny: 1.5vw;
+  --font-base: 16px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --font-large: 4rem; /* Slightly reduced for smaller desktops/laptops */
+    --font-medium: 3rem;
+    --font-small: 2rem;
+    --font-tiny: 1.25rem;
+  }
+}
+
+@media (max-width: 883px) {
+  :root {
+    --font-large: 3rem; /* 768 Optimized for tablets and large phones */
+    --font-medium: 2.5rem;
+    --font-small: 1.5rem;
+    --font-tiny: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-large: 2.5rem; /* Optimized for small phones */
+    --font-medium: 2rem;
+    --font-small: 1.25rem;
+    --font-tiny: 0.875rem;
+  }
+}
+
 @import '~antd/dist/antd.css';
 
 .App {
@@ -35,7 +70,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 5vw;
+  font-size: var(--font-large);
   color: black;
   padding: 0px 0px 0px 0px;
 }
@@ -47,7 +82,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 4vw;
+  font-size: var(--font-medium);
   font-weight: 500;
   color: mediumvioletred;
   padding-top: 0;
@@ -58,14 +93,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 3.5vw;
+  font-size: calc(var(--font-medium) - 0.25rem);
   color: darkblue;
   padding-top: 0;
 }
 .App-text {
   align-items: center;
   justify-content: center;
-  font-size: 2vw;
+  font-size: var(--font-small);
   font-weight: 300;
   color: black;
 }
@@ -73,7 +108,7 @@
 .App-text-subheader {
   align-items: center;
   justify-content: center;
-  font-size: 2vw;
+  font-size: var(--font-small);
   font-weight: 400;
   color: darkblue;
 }
@@ -82,15 +117,15 @@
   align-items: left;
   justify-content: left;
   font-weight: 600;
-  font-size: 1.7vw;
+  font-size: calc(var(--font-small) - 0.3rem);
   color: black;
 }
 
 .App-text-tiny {
   align-items: left;
   justify-content: left;
-  font-weight: 600;
-  font-size: 1.0vw;
+  font-weight: 400;
+  font-size: var(--font-tiny);
   color: black;
 }
 
@@ -99,6 +134,19 @@
   width: 100%;
   overflow: hidden;
   padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+.custom-Panel {
+  background: '#f7f7f7';
+  font-Size: var(--font-medium);
+  border-radius: 4;
+  margin-bottom: 24;
+  border: 0;
+  overflow: 'hidden';
+};
+@media (max-width: 768px) {
+  .custom-panel {
+    font-size: 1rem; /* Adjust for smaller screens */
+  }
 }
 .responsive-iframe {
   align-items: center;
@@ -112,13 +160,19 @@
 
 .schedule {   align-items: center;
   justify-content: center;
-  font-size: 1.5vw;
+  font-size: var(--font-small);
   font-weight: 300;
   color: black;}
+  
+  @media (max-width: 768px) {
+    .schedule {
+      font-size: .75rem; /* Adjust for smaller screens */
+    }
+  }
 
 .picture {   align-items: center;
   justify-content: center;
-  font-size: 1.25vw;
+  font-size: calc(var(--font-small) - 0.75rem);
   font-weight: 300;
   color: black;}
 
