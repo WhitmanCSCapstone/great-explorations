@@ -60,16 +60,17 @@ class Registration extends Component {
                         <center> {this.state.text[127]} </center>
                         <center style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem)', color: 'black'}}>{this.state.text[128]}</center>
                     </p>
-                    {/*} comment out the registration form until open
+                    
+                    {/* comment out the registration form until open */}
                     <p className="App-text">
                         <center> {this.state.text[129]} </center>
-                        <center><a target="_blank" href='https://forms.gle/pXKxarLCetFkPxVN9' rel="noopener norefferer">
+                        <center><a target="_blank" href='https://forms.gle/7EA6ZELnw3dvwiBo6' rel="noopener norefferer">
                          Great Explorations Pre-Registration Form.</a> <br></br></center>
-                    </p> */}
-                    {/* comment out the instructions and workshops until open
+                    </p>
+                    {/* comment out the instructions and workshops until open */}
                     <p className="App-text-tiny"><i>
                       {this.state.text[16]}
-                    </i></p> <br></br>  */}
+                    </i></p> <br></br> 
 
                     <p className="App-header-text-2">
                         <center> {this.state.text[130]} </center>
