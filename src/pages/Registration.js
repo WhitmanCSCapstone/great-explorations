@@ -62,11 +62,11 @@ class Registration extends Component {
                     </p>
                     
                     {/* comment out the registration form until open */}
-                    <p className="App-text">
+                    {/* <p className="App-text">
                         <center> {this.state.text[129]} </center>
                         <center><a target="_blank" href='https://forms.gle/7EA6ZELnw3dvwiBo6' rel="noopener norefferer">
                          Great Explorations Pre-Registration Form.</a> <br></br></center>
-                    </p>
+                    </p> */}
                     {/* comment out the instructions and workshops until open */}
                     <p className="App-text-tiny"><i>
                       {this.state.text[16]}
